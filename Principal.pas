@@ -38,7 +38,6 @@ type
     LayMsgUTM: TLayout;
     Label7: TLabel;
     LctSensor: TLocationSensor;
-    Timer: TTimer;
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
     procedure SwitchGPSSwitch(Sender: TObject);
@@ -55,7 +54,6 @@ var
 implementation
 
 {$R *.fmx}
-{$R *.LgXhdpiPh.fmx ANDROID}
 
 procedure TForm1.LctSensorLocationChanged(Sender: TObject; const OldLocation,
   NewLocation: TLocationCoord2D);
