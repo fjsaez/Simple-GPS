@@ -19,7 +19,7 @@ type
     LayMap: TLayout;
     LayLED: TLayout;
     SwitchGPS: TSwitch;
-    Label1: TLabel;
+    LActivar: TLabel;
     Layout4: TLayout;
     LayLat: TLayout;
     Label2: TLabel;
@@ -38,6 +38,7 @@ type
     LayMsgUTM: TLayout;
     Label7: TLabel;
     LctSensor: TLocationSensor;
+    Timer: TTimer;
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
     procedure SwitchGPSSwitch(Sender: TObject);
@@ -77,14 +78,27 @@ end;
 
 procedure TForm1.SpeedButton1Click(Sender: TObject);
 begin
-  MainActivity.finish;
+  //MainActivity.finish;
+  Application.Terminate;
 end;
 
 procedure TForm1.SwitchGPSSwitch(Sender: TObject);
 begin
   LctSensor.Active:=SwitchGPS.IsChecked;
-  if SwitchGPS.IsChecked then CrcKingOTN.Stroke.Color:=$FF7FFF00   //chartreuse
-                         else CrcKingOTN.Stroke.Color:=$FFFF0000;  //rojo
+  if SwitchGPS.IsChecked then
+  begin
+    LActivar.Text:='Desactivar GPS';
+    CrcKingOTN.Stroke.Color:=$FF7FFF00   //chartreuse
+  end
+  else
+  begin
+    LActivar.Text:='Activar GPS';
+    CrcKingOTN.Stroke.Color:=$FFFF0000;  //rojo
+    LLat.Text:='--.-----';
+    LLon.Text:='--.-----';
+    LEste.Text:='--';
+    LNorte.Text:='--';
+  end;
 end;
 
 end.
