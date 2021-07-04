@@ -38,10 +38,12 @@ type
     LayMsgUTM: TLayout;
     Label7: TLabel;
     LctSensor: TLocationSensor;
+    SpeedButton2: TSpeedButton;
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
     procedure SwitchGPSSwitch(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -78,6 +80,13 @@ procedure TForm1.SpeedButton1Click(Sender: TObject);
 begin
   //MainActivity.finish;
   Application.Terminate;
+end;
+
+procedure TForm1.SpeedButton2Click(Sender: TObject);
+begin
+  ShowMessage('Simple GPS'+#13#10+'v1.0'+#13#10#13#10+
+    'Autor: Francisco J. Sáez S.'+#13#10#13#10+
+    'Calabozo, 03 de julio de 2021');
 end;
 
 procedure TForm1.SwitchGPSSwitch(Sender: TObject);
