@@ -94,6 +94,10 @@
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <Icns_MainIcns>$(BDS)\bin\delphi_PROJECTICNS.icns</Icns_MainIcns>
         <SanitizedProjectName>SimpleGPS</SanitizedProjectName>
+        <OrientationPortrait>true</OrientationPortrait>
+        <OrientationPortraitUpsideDown>true</OrientationPortraitUpsideDown>
+        <OrientationLandscapeLeft>true</OrientationLandscapeLeft>
+        <OrientationLandscapeRight>true</OrientationLandscapeRight>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DBXInterBaseDriver;NetCom7;tethering;bindcompfmx;FmxTeeUI;fmx;FireDACIBDriver;RadiantShapesFmx;dbexpress;IndyCore;dsnap;FireDACCommon;FrameStandPackage_10_3;RESTBackendComponents;soapserver;bindengine;CloudService;FireDACCommonDriver;inet;IndyIPCommon;bindcompdbx;IndyIPServer;IndySystem;fmxFireDAC;FireDAC;FireDACSqliteDriver;ibmonitor;FMXTee;soaprtl;DbxCommonDriver;ibxpress;xmlrtl;soapmidas;ibxbindings;rtl;DbxClientDriver;CustomIPTransport;bindcomp;IndyIPClient;dbxcds;RadiantShapesFmx_Design;dsnapxml;dbrtl;IndyProtocols;$(DCC_UsePackage)</DCC_UsePackage>
@@ -205,7 +209,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="Principal.pas">
-            <Form>Form1</Form>
+            <Form>FPrinc</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
