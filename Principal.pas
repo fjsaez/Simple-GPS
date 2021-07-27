@@ -6,7 +6,11 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, System.Sensors,
-  System.Sensors.Components, FMX.Objects, FMX.Platform.Android, UTM_WGS84;
+  System.Sensors.Components, FMX.Objects, FMX.Platform.Android, UTM_WGS84,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
 
 type
   TFPrinc = class(TForm)
@@ -66,6 +70,7 @@ type
     Label13: TLabel;
     BAceptar: TButton;
     Rectangle2: TRectangle;
+    FDQuery1: TFDQuery;
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
     procedure SwitchGPSSwitch(Sender: TObject);
@@ -150,9 +155,6 @@ end;
 
 procedure TFPrinc.SpeedButton2Click(Sender: TObject);
 begin
-  {ShowMessage('Simple GPS'+#13#10+'v1.0'+#13#10#13#10+
-    'Autor: Francisco J. Sáez S.'+#13#10#13#10+
-    'Calabozo, 03 de julio de 2021');}
   LayPrinc.Visible:=false;
   PnlAcerca.Visible:=true;
 end;
@@ -163,7 +165,7 @@ begin
   if SwitchGPS.IsChecked then
   begin
     LActivar.Text:='Desactivar GPS';
-    RectActivar.Fill.Color:=$FF7FFF00;
+    RectActivar.Fill.Color:=$00FF0000;    //lime
     CrcKingOTN.Stroke.Color:=$FF7FFF00;   //chartreuse
   end
   else
