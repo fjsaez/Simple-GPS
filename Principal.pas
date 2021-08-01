@@ -195,7 +195,7 @@ begin
   if SwitchGPS.IsChecked then
   begin
     LActivar.Text:='Desactivar GPS';
-    RectActivar.Fill.Color:=$00FF0000;    //lime
+    RectActivar.Fill.Color:=4278255360;    //lime
     CrcKingOTN.Stroke.Color:=$FF7FFF00;   //chartreuse
   end
   else
