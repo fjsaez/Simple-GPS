@@ -6,11 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, System.Sensors,
-  System.Sensors.Components, FMX.Objects, FMX.Platform.Android, UTM_WGS84,
-  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
-  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
-  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client;
+  System.Sensors.Components, FMX.Objects, FMX.Platform.Android, UTM_WGS84;
 
 type
   TFPrinc = class(TForm)
@@ -70,7 +66,6 @@ type
     Label13: TLabel;
     BAceptar: TButton;
     Rectangle2: TRectangle;
-    FDQuery1: TFDQuery;
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
     procedure SwitchGPSSwitch(Sender: TObject);
@@ -114,6 +109,40 @@ begin
   end;
 end;
 
+procedure RotarFlecha(Circulo: TCircle; Azimut: Double);
+var
+  I,AntGrados,NvoGrados,Diferencia: Word;
+
+  procedure MoverFlecha(I: word);
+  begin
+    Application.ProcessMessages;
+    Sleep(0);
+    Circulo.RotationAngle:=I;
+  end;
+
+begin
+  if Round(Circulo.RotationAngle)=0 then AntGrados:=360
+  else AntGrados:=Round(Circulo.RotationAngle);
+  if Azimut=0 then NvoGrados:=360
+              else NvoGrados:=Round(Azimut);
+  Diferencia:=Abs(NvoGrados-AntGrados);
+  if Diferencia<=180 then
+  begin
+    if NvoGrados>AntGrados then
+      for I:=AntGrados to NvoGrados do MoverFlecha(I)
+    else
+      for I:=AntGrados downto NvoGrados do MoverFlecha(I);
+  end
+  else
+  begin
+    Circulo.RotationAngle:=AntGrados+NvoGrados;
+    if AntGrados>NvoGrados then
+      for I:=AntGrados to 360+NvoGrados do MoverFlecha(I)
+    else
+      for I:=AntGrados downto NvoGrados do MoverFlecha(I)
+  end;
+end;
+
 procedure TFPrinc.BAceptarClick(Sender: TObject);
 begin
   PnlAcerca.Visible:=false;
@@ -123,6 +152,7 @@ end;
 procedure TFPrinc.LctSensorHeadingChanged(Sender: TObject;
   const AHeading: THeading);
 begin
+  RotarFlecha(CrcKingOTN,AHeading.Azimuth);
   CrcKingOTN.RotationAngle:=AHeading.Azimuth;
   LAzimut.Text:=FormatFloat('0.##',AHeading.Azimuth)+'º';
   LRumbo.Text:=Orientacion(AHeading.Azimuth);
