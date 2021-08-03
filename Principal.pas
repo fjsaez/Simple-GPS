@@ -74,6 +74,7 @@ type
     procedure LctSensorHeadingChanged(Sender: TObject;
       const AHeading: THeading);
     procedure BAceptarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -149,6 +150,11 @@ begin
   LayPrinc.Visible:=true;
 end;
 
+procedure TFPrinc.FormCreate(Sender: TObject);
+begin
+  LActivar.TextSettings.FontColor:=4294967295; //blanco
+end;
+
 procedure TFPrinc.LctSensorHeadingChanged(Sender: TObject;
   const AHeading: THeading);
 begin
@@ -195,14 +201,16 @@ begin
   if SwitchGPS.IsChecked then
   begin
     LActivar.Text:='Desactivar GPS';
-    RectActivar.Fill.Color:=4278255360;    //lime
-    CrcKingOTN.Stroke.Color:=$FF7FFF00;   //chartreuse
+    LActivar.TextSettings.FontColor:=4278190080; //negro
+    RectActivar.Fill.Color:=4278255360;          //lime
+    CrcKingOTN.Stroke.Color:=$FF7FFF00;          //chartreuse
   end
   else
   begin
     LActivar.Text:='Activar GPS';
-    RectActivar.Fill.Color:=$FFFF0000;
-    CrcKingOTN.Stroke.Color:=$FFFF0000;  //rojo
+    LActivar.TextSettings.FontColor:=4294967295; //blanco
+    RectActivar.Fill.Color:=$FFFF0000;           //rojo
+    CrcKingOTN.Stroke.Color:=$FFFF0000;          //rojo
     LLat.Text:='--.-----';
     LLon.Text:='--.-----';
     LEste.Text:='--';
