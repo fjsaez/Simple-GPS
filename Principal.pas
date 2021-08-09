@@ -66,6 +66,7 @@ type
     Label13: TLabel;
     BAceptar: TButton;
     Rectangle2: TRectangle;
+    Image2: TImage;
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
     procedure SwitchGPSSwitch(Sender: TObject);
@@ -217,6 +218,7 @@ begin
     LNorte.Text:='--';
     LAzimut.Text:='--';
     LRumbo.Text:='--';
+    CrcKingOTN.RotationAngle:=0;
   end;
 end;
 
