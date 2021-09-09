@@ -168,7 +168,7 @@ end;
 procedure TFPrinc.LctSensorLocationChanged(Sender: TObject; const OldLocation,
   NewLocation: TLocationCoord2D);
 var
-  LDecSeparator: String;
+  LDecSeparator: char;
   LatLon: TRecLatLon;
   UTM: TRecUTM;
 begin
