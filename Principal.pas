@@ -60,10 +60,10 @@ type
     Layout10: TLayout;
     Layout11: TLayout;
     Image1: TImage;
-    Label9: TLabel;
-    Label10: TLabel;
-    Label11: TLabel;
-    Label13: TLabel;
+    LNombre: TLabel;
+    LVersion: TLabel;
+    LAutor: TLabel;
+    LFecha: TLabel;
     BAceptar: TButton;
     Rectangle2: TRectangle;
     Image2: TImage;
@@ -151,9 +151,19 @@ begin
   LayPrinc.Visible:=true;
 end;
 
+procedure CargarFuente(Etq: TLabel);
+var
+  Recursos: TResourceStream;
+  Fuente: TFont;
+begin            //continuar aquí mañana
+  Fuente:=TFont.Create;
+  Recursos:=TResourceStream.Create(hInstance,'1',RT_RCDATA);
+end;
+
 procedure TFPrinc.FormCreate(Sender: TObject);
 begin
   LActivar.TextSettings.FontColor:=4294967295; //blanco
+  LNombre.Font.Family:='1';
 end;
 
 procedure TFPrinc.LctSensorHeadingChanged(Sender: TObject;
@@ -186,7 +196,6 @@ end;
 
 procedure TFPrinc.SpeedButton1Click(Sender: TObject);
 begin
-  //MainActivity.finish;
   Application.Terminate;
 end;
 
@@ -223,3 +232,9 @@ begin
 end;
 
 end.
+
+{procedure TFPrinc.SpeedButton1Click(Sender: TObject);
+begin
+  //MainActivity.finish;
+  Application.Terminate;
+end;}

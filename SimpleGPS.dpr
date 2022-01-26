@@ -1,5 +1,7 @@
 program SimpleGPS;
 
+{$R *.dres}
+
 uses
   System.StartUpCopy,
   Androidapi.JNI.App,

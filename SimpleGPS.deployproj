@@ -144,9 +144,9 @@
             <Overwrite>True</Overwrite>
         </DeployFile>
         <DeployFile Include="FranciscoSaezBasico.ttf" Condition="'$(Config)'=='Release'">
-            <RemoteDir>SimpleGPS\</RemoteDir>
+            <RemoteDir>SimpleGPS\assets\internal\</RemoteDir>
             <RemoteName>FranciscoSaezBasico.ttf</RemoteName>
-            <DeployClass>File</DeployClass>
+            <DeployClass>ProjectFile</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>

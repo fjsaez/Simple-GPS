@@ -212,6 +212,10 @@
             <Form>FPrinc</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <RcItem Include="FranciscoSaezBasico.ttf">
+            <ResourceType>FONT</ResourceType>
+            <ResourceId>1</ResourceId>
+        </RcItem>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -333,9 +337,9 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="FranciscoSaezBasico.ttf" Configuration="Release" Class="File">
+                <DeployFile LocalName="FranciscoSaezBasico.ttf" Configuration="Release" Class="ProjectFile">
                     <Platform Name="Android">
-                        <RemoteName>FranciscoSaezBasico.ttf</RemoteName>
+                        <RemoteDir>.\assets\internal\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
