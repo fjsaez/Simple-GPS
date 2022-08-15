@@ -9,7 +9,7 @@ Sencilla app móvil para Android que muestra las coordenadas del GPS, tanto en f
 
 ---
 
-## Lenguaje/framework/base de datos
+## Lenguaje/framework
 
 * Lenguaje: Delphi 10.2 Tokyo, empleando sólo componentes nativos. 
 * Framework: Firemonkey. 
