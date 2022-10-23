@@ -155,7 +155,7 @@ procedure CargarFuente(Etq: TLabel);
 var
   Recursos: TResourceStream;
   Fuente: TFont;
-begin            //continuar aquí mañana
+begin
   Fuente:=TFont.Create;
   Recursos:=TResourceStream.Create(hInstance,'1',RT_RCDATA);
 end;
