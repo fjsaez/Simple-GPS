@@ -232,9 +232,3 @@ begin
 end;
 
 end.
-
-{procedure TFPrinc.SpeedButton1Click(Sender: TObject);
-begin
-  //MainActivity.finish;
-  Application.Terminate;
-end;}
