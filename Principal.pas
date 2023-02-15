@@ -1,12 +1,12 @@
-unit Principal;
+﻿unit Principal;
 
 interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
-  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, System.Sensors,
-  System.Sensors.Components, FMX.Objects, FMX.Platform.Android, UTM_WGS84;
+  System.Sensors, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Platform.Android,
+  System.Sensors.Components, FMX.Objects, UTM_WGS84;
 
 type
   TFPrinc = class(TForm)
@@ -117,8 +117,8 @@ var
 
   procedure MoverFlecha(I: word);
   begin
-    Application.ProcessMessages;
-    Sleep(0);
+    //Application.ProcessMessages;  momentáneamente deshabilitado!
+    //Sleep(0);
     Circulo.RotationAngle:=I;
   end;
 
@@ -171,7 +171,7 @@ procedure TFPrinc.LctSensorHeadingChanged(Sender: TObject;
 begin
   RotarFlecha(CrcKingOTN,AHeading.Azimuth);
   CrcKingOTN.RotationAngle:=AHeading.Azimuth;
-  LAzimut.Text:=FormatFloat('0.##',AHeading.Azimuth)+'�';
+  LAzimut.Text:=FormatFloat('0.##',AHeading.Azimuth)+'º';
   LRumbo.Text:=Orientacion(AHeading.Azimuth);
 end;
 
@@ -184,7 +184,7 @@ var
 begin
   LDecSeparator:=FormatSettings.DecimalSeparator;
   FormatSettings.DecimalSeparator:='.';
-  //muestra la posici�n actual:
+  //muestra la posición actual:
   LatLon.Lat:=NewLocation.Latitude;
   LatLon.Lon:=NewLocation.Longitude;
   LatLon_To_UTM(LatLon,UTM);
