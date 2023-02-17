@@ -8,7 +8,9 @@ uses
   Androidapi.JNI.GraphicsContentViewText,
   Androidapi.Helpers,
   FMX.Forms,
-  Principal in 'Principal.pas' {FPrinc};
+  Principal in 'Principal.pas' {FPrinc},
+  Androidapi.JNI.Location in 'Androidapi.JNI.Location.pas',
+  System.Android.Sensors in 'System.Android.Sensors.pas';
 
 {$R *.res}
 

@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   System.Sensors, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Platform.Android,
-  System.Sensors.Components, FMX.Objects, UTM_WGS84;
+  System.Sensors.Components, FMX.Objects, UTM_WGS84, Androidapi.JNI.Location,
+  System.Android.Sensors, FMX.FontGlyphs.Android;
 
 type
   TFPrinc = class(TForm)
@@ -67,6 +68,15 @@ type
     BAceptar: TButton;
     Rectangle2: TRectangle;
     Image2: TImage;
+    LayMsgGMS: TLayout;
+    Label9: TLabel;
+    LayLatGSM: TLayout;
+    Label10: TLabel;
+    LLatGMS: TLabel;
+    LayLonGSM: TLayout;
+    Label12: TLabel;
+    LLonGMS: TLabel;
+    Rectangle5: TRectangle;
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
     procedure SwitchGPSSwitch(Sender: TObject);
@@ -86,6 +96,10 @@ var
   FPrinc: TFPrinc;
 
 implementation
+
+uses
+  System.Permissions,
+  FMX.DialogService;
 
 {$R *.fmx}
 
@@ -118,7 +132,7 @@ var
   procedure MoverFlecha(I: word);
   begin
     //Application.ProcessMessages;  momentáneamente deshabilitado!
-    //Sleep(0);
+    Sleep(0);
     Circulo.RotationAngle:=I;
   end;
 
@@ -192,6 +206,8 @@ begin
   LLon.Text:=Format('%2.6f',[NewLocation.Longitude]);
   LEste.Text:=FormatFloat('#0.00',UTM.X);
   LNorte.Text:=FormatFloat('#0.00',UTM.Y);
+  LLatGMS.Text:=DecAGrados(LatLon.Lat,true);
+  LLonGMS.Text:=DecAGrados(LatLon.Lon,false);
 end;
 
 procedure TFPrinc.SpeedButton1Click(Sender: TObject);
@@ -206,6 +222,82 @@ begin
 end;
 
 procedure TFPrinc.SwitchGPSSwitch(Sender: TObject);
+const
+  PermissionAccessFineLocation = 'android.permission.ACCESS_FINE_LOCATION';
+begin
+  PermissionsService.RequestPermissions([PermissionAccessFineLocation],
+    procedure(const APermissions: TClassicStringDynArray; const AGrantResults: TClassicPermissionStatusDynArray)
+    begin
+      if (Length(AGrantResults) = 1) and (AGrantResults[0] = TPermissionStatus.Granted) then
+        { activate or deactivate the location sensor }
+        LctSensor.Active := SwitchGPS.IsChecked
+      else
+      begin
+        SwitchGPS.IsChecked:=false;
+        TDialogService.ShowMessage('Permiso de Localización no está permitido');
+      end;
+    end);
+
+  if SwitchGPS.IsChecked then
+  begin
+    LActivar.Text:='Desactivar GPS';
+    LActivar.TextSettings.FontColor:=4278190080; //negro
+    RectActivar.Fill.Color:=4278255360;          //lime
+    CrcKingOTN.Stroke.Color:=$FF7FFF00;          //chartreuse
+  end
+  else
+  begin
+    LActivar.Text:='Activar GPS';
+    LActivar.TextSettings.FontColor:=4294967295; //blanco
+    RectActivar.Fill.Color:=$FFFF0000;           //rojo
+    CrcKingOTN.Stroke.Color:=$FFFF0000;          //rojo
+    LLat.Text:='--.-----';
+    LLon.Text:='--.-----';
+    LEste.Text:='--';
+    LNorte.Text:='--';
+    LAzimut.Text:='--';
+    LRumbo.Text:='--';
+    LLatGMS.Text:='--º --'' --"';
+    LLonGMS.Text:='--º --'' --"';
+    CrcKingOTN.RotationAngle:=0;
+  end;
+end;
+
+end.
+
+(*
+
+implementation
+
+uses
+  System.Permissions,
+  FMX.DialogService;
+
+
+procedure TLocationForm.swLocationSensorActiveSwitch(Sender: TObject);
+const
+  PermissionAccessFineLocation = 'android.permission.ACCESS_FINE_LOCATION';
+begin
+{$IFDEF ANDROID}
+  PermissionsService.RequestPermissions([PermissionAccessFineLocation],
+    procedure(const APermissions: TClassicStringDynArray; const AGrantResults: TClassicPermissionStatusDynArray)
+    begin
+      if (Length(AGrantResults) = 1) and (AGrantResults[0] = TPermissionStatus.Granted) then
+        { activate or deactivate the location sensor }
+        LocationSensor1.Active := swLocationSensorActive.IsChecked
+      else
+      begin
+        swLocationSensorActive.IsChecked := False;
+
+        TDialogService.ShowMessage('Location permission not granted');
+      end;
+    end);
+{$ELSE}
+  LocationSensor1.Active := swLocationSensorActive.IsChecked;
+{$ENDIF}
+end;
+
+
 begin
   LctSensor.Active:=SwitchGPS.IsChecked;
   if SwitchGPS.IsChecked then
@@ -229,6 +321,4 @@ begin
     LRumbo.Text:='--';
     CrcKingOTN.RotationAngle:=0;
   end;
-end;
-
-end.
+*)
