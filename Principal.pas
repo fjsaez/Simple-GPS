@@ -225,11 +225,12 @@ procedure TFPrinc.SwitchGPSSwitch(Sender: TObject);
 const
   PermissionAccessFineLocation = 'android.permission.ACCESS_FINE_LOCATION';
 begin
+  //se activa el sensor. Ojo: cambio hecho para Delphi 11.2
   PermissionsService.RequestPermissions([PermissionAccessFineLocation],
-    procedure(const APermissions: TClassicStringDynArray; const AGrantResults: TClassicPermissionStatusDynArray)
+    procedure(const APermissions: TClassicStringDynArray;
+              const AGrantResults: TClassicPermissionStatusDynArray)
     begin
-      if (Length(AGrantResults) = 1) and (AGrantResults[0] = TPermissionStatus.Granted) then
-        { activate or deactivate the location sensor }
+      if (Length(AGrantResults)=1) and (AGrantResults[0]=TPermissionStatus.Granted) then
         LctSensor.Active := SwitchGPS.IsChecked
       else
       begin
