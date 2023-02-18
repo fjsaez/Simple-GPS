@@ -304,10 +304,6 @@
         </DCCReference>
         <DCCReference Include="Androidapi.JNI.Location.pas"/>
         <DCCReference Include="System.Android.Sensors.pas"/>
-        <RcItem Include="FranciscoSaezBasico.ttf">
-            <ResourceType>FONT</ResourceType>
-            <ResourceId>1</ResourceId>
-        </RcItem>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -467,13 +463,6 @@
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="FranciscoSaezBasico.ttf" Configuration="Release" Class="ProjectFile"/>
-                <DeployFile LocalName="FranciscoSaezBasico.ttf" Configuration="Release" Class="ProjectFile">
-                    <Platform Name="Android">
-                        <RemoteDir>.\assets\internal\</RemoteDir>
-                        <Enabled>false</Enabled>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="Imagen\GPS_144px.png" Configuration="Release" Class="Android_LauncherIcon144"/>
                 <DeployFile LocalName="Imagen\GPS_144px.png" Configuration="Release" Class="Android_LauncherIcon144">
                     <Platform Name="Android">

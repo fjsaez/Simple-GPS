@@ -38613,7 +38613,7 @@ object FPrinc: TFPrinc
   end
   object LctSensor: TLocationSensor
     ActivityType = Other
-    UsageAuthorization = WhenInUse
+    UsageAuthorization = Always
     OnLocationChanged = LctSensorLocationChanged
     OnHeadingChanged = LctSensorHeadingChanged
     Left = 168
