@@ -297,29 +297,4 @@ begin
   LocationSensor1.Active := swLocationSensorActive.IsChecked;
 {$ENDIF}
 end;
-
-
-begin
-  LctSensor.Active:=SwitchGPS.IsChecked;
-  if SwitchGPS.IsChecked then
-  begin
-    LActivar.Text:='Desactivar GPS';
-    LActivar.TextSettings.FontColor:=4278190080; //negro
-    RectActivar.Fill.Color:=4278255360;          //lime
-    CrcKingOTN.Stroke.Color:=$FF7FFF00;          //chartreuse
-  end
-  else
-  begin
-    LActivar.Text:='Activar GPS';
-    LActivar.TextSettings.FontColor:=4294967295; //blanco
-    RectActivar.Fill.Color:=$FFFF0000;           //rojo
-    CrcKingOTN.Stroke.Color:=$FFFF0000;          //rojo
-    LLat.Text:='--.-----';
-    LLon.Text:='--.-----';
-    LEste.Text:='--';
-    LNorte.Text:='--';
-    LAzimut.Text:='--';
-    LRumbo.Text:='--';
-    CrcKingOTN.RotationAngle:=0;
-  end;
 *)
