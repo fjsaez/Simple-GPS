@@ -304,6 +304,16 @@
         </DCCReference>
         <DCCReference Include="Androidapi.JNI.Location.pas"/>
         <DCCReference Include="System.Android.Sensors.pas"/>
+        <DCCReference Include="DataMod.pas">
+            <Form>DMod</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="AggCoordenada.pas">
+            <Form>FrmAggCoord</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

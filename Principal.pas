@@ -7,7 +7,7 @@ uses
   System.Sensors, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Platform.Android,
   System.Sensors.Components, FMX.Objects, UTM_WGS84, Androidapi.JNI.Location,
-  System.Android.Sensors, FMX.FontGlyphs.Android;
+  FMX.FontGlyphs.Android, AggCoordenada{, System.Android.Sensors};
 
 type
   TFPrinc = class(TForm)
@@ -77,6 +77,8 @@ type
     Label12: TLabel;
     LLonGMS: TLabel;
     Rectangle5: TRectangle;
+    SpeedButton3: TSpeedButton;
+    FrmAggCoord: TFrmAggCoord;
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
     procedure SwitchGPSSwitch(Sender: TObject);
@@ -86,6 +88,8 @@ type
       const AHeading: THeading);
     procedure BAceptarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure FrmAggCoordSBAcercaOKClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -98,8 +102,7 @@ var
 implementation
 
 uses
-  System.Permissions,
-  FMX.DialogService;
+  System.Permissions, FMX.DialogService;
 
 {$R *.fmx}
 
@@ -180,6 +183,13 @@ begin
   LNombre.Font.Family:='1';
 end;
 
+procedure TFPrinc.FrmAggCoordSBAcercaOKClick(Sender: TObject);
+begin
+  FrmAggCoord.SBVolverOKClick(Sender);
+  FrmAggCoord.Visible:=false;
+  LayPrinc.Visible:=true;
+end;
+
 procedure TFPrinc.LctSensorHeadingChanged(Sender: TObject;
   const AHeading: THeading);
 begin
@@ -221,9 +231,14 @@ begin
   PnlAcerca.Visible:=true;
 end;
 
+procedure TFPrinc.SpeedButton3Click(Sender: TObject);
+begin
+  //
+end;
+
 procedure TFPrinc.SwitchGPSSwitch(Sender: TObject);
 const
-  PermissionAccessFineLocation = 'android.permission.ACCESS_FINE_LOCATION';
+  PermissionAccessFineLocation='android.permission.ACCESS_FINE_LOCATION';
 begin
   //se activa el sensor. Ojo: cambio hecho para Delphi 11.2
   PermissionsService.RequestPermissions([PermissionAccessFineLocation],
@@ -238,7 +253,7 @@ begin
         TDialogService.ShowMessage('Permiso de Localización no está permitido');
       end;
     end);
-
+  //se cambian los colores según esté activo o no el GPS:
   if SwitchGPS.IsChecked then
   begin
     LActivar.Text:='Desactivar GPS';
