@@ -181,6 +181,7 @@ procedure TFPrinc.FormCreate(Sender: TObject);
 begin
   LActivar.TextSettings.FontColor:=4294967295; //blanco
   LNombre.Font.Family:='1';
+  FrmAggCoord.ValInicio;
 end;
 
 procedure TFPrinc.FrmAggCoordSBAcercaOKClick(Sender: TObject);
@@ -218,6 +219,14 @@ begin
   LNorte.Text:=FormatFloat('#0.00',UTM.Y);
   LLatGMS.Text:=DecAGrados(LatLon.Lat,true);
   LLonGMS.Text:=DecAGrados(LatLon.Lon,false);
+  //carga el registro:
+  FrmAggCoord.Coord.EsteUTM:=UTM.X;
+  FrmAggCoord.Coord.NorteUTM:=UTM.Y;
+  FrmAggCoord.Coord.Lat:=NewLocation.Latitude;
+  FrmAggCoord.Coord.Lon:=NewLocation.Longitude;
+  FrmAggCoord.Coord.LatGMS:=LLatGMS.Text;
+  FrmAggCoord.Coord.LonGMS:=LLonGMS.Text;
+  FrmAggCoord.Coord.Fecha:=Now;
 end;
 
 procedure TFPrinc.SpeedButton1Click(Sender: TObject);
@@ -233,7 +242,8 @@ end;
 
 procedure TFPrinc.SpeedButton3Click(Sender: TObject);
 begin
-  //
+  LayPrinc.Visible:=false;
+  FrmAggCoord.Visible:=true;
 end;
 
 procedure TFPrinc.SwitchGPSSwitch(Sender: TObject);
@@ -250,6 +260,7 @@ begin
       else
       begin
         SwitchGPS.IsChecked:=false;
+        FrmAggCoord.ValInicio;
         TDialogService.ShowMessage('Permiso de Localización no está permitido');
       end;
     end);

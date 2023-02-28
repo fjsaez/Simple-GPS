@@ -38667,6 +38667,10 @@ object FPrinc: TFPrinc
       Left = 312
       Top = 8
     end
+    inherited QrLista: TFDQuery
+      Active = True
+      Connection = DMod.FDConn
+    end
   end
   object LctSensor: TLocationSensor
     ActivityType = Other
