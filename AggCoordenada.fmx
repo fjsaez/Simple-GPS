@@ -140,6 +140,7 @@ object FrmAggCoord: TFrmAggCoord
         Size.PlatformDefault = False
         TabOrder = 0
         Text = 'Guardar'
+        OnClick = Button1Click
       end
     end
     object Layout6: TLayout
@@ -162,8 +163,8 @@ object FrmAggCoord: TFrmAggCoord
         Size.Height = 80.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
-        Viewport.Width = 350.000000000000000000
-        Viewport.Height = 80.000000000000000000
+        Viewport.Width = 346.000000000000000000
+        Viewport.Height = 76.000000000000000000
       end
     end
   end
@@ -215,7 +216,17 @@ object FrmAggCoord: TFrmAggCoord
     end
   end
   object Query: TFDQuery
-    Left = 408
+    ConnectionName = 'Conex'
+    SQL.Strings = (
+      '')
+    Left = 448
+    Top = 24
+  end
+  object QrLista: TFDQuery
+    ConnectionName = 'Conex'
+    SQL.Strings = (
+      'select * from Coordenadas order by Fecha')
+    Left = 400
     Top = 24
   end
 end

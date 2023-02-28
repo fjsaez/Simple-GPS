@@ -135,7 +135,7 @@ var
   procedure MoverFlecha(I: word);
   begin
     //Application.ProcessMessages;  momentáneamente deshabilitado!
-    Sleep(10);
+    Sleep(50);
     Circulo.RotationAngle:=I;
   end;
 
