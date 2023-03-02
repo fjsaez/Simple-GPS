@@ -9,7 +9,9 @@ uses
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FMX.Controls.Presentation,
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
   Data.DB, FMX.Layouts, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo, FMX.ListView,
-  FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base;
+  FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
+  System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
+  Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope;
 
 type
   TCoord = record
@@ -40,8 +42,13 @@ type
     BGuardar: TButton;
     ListView1: TListView;
     SBVolverOK: TSpeedButton;
+    BindSourceDB: TBindSourceDB;
+    BindingsList1: TBindingsList;
+    LinkFillControlToField1: TLinkFillControlToField;
     procedure SBVolverOKClick(Sender: TObject);
     procedure BGuardarClick(Sender: TObject);
+    procedure ListView1ItemClick(const Sender: TObject;
+      const AItem: TListViewItem);
   private
     { Private declarations }
   public
@@ -84,6 +91,12 @@ begin
   Query.ExecSQL;
   ValInicio;
   ShowMessage('Coordenada agregada');
+end;
+
+procedure TFrmAggCoord.ListView1ItemClick(const Sender: TObject;
+  const AItem: TListViewItem);
+begin
+  BGuardar.Text:='Eliminar';
 end;
 
 procedure TFrmAggCoord.SBVolverOKClick(Sender: TObject);

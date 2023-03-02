@@ -7,7 +7,7 @@ uses
   System.Sensors, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Platform.Android,
   System.Sensors.Components, FMX.Objects, UTM_WGS84, Androidapi.JNI.Location,
-  FMX.FontGlyphs.Android, AggCoordenada{, System.Android.Sensors};
+  FMX.FontGlyphs.Android, AggCoordenada;
 
 type
   TFPrinc = class(TForm)
@@ -96,6 +96,13 @@ type
     { Public declarations }
   end;
 
+const
+  Blanco=4294967295;
+  Negro=4278190080;
+  Lima=4278255360;
+  Chartreuse=$FF7FFF00;
+  Rojo=$FFFF0000;
+
 var
   FPrinc: TFPrinc;
 
@@ -179,9 +186,11 @@ end;
 
 procedure TFPrinc.FormCreate(Sender: TObject);
 begin
-  LActivar.TextSettings.FontColor:=4294967295; //blanco
+  LActivar.TextSettings.FontColor:=Blanco;//4294967295; //blanco
   LNombre.Font.Family:='1';
   FrmAggCoord.ValInicio;
+  FrmAggCoord.Visible:=false;
+  LayPrinc.Visible:=true;
 end;
 
 procedure TFPrinc.FrmAggCoordSBAcercaOKClick(Sender: TObject);
@@ -268,16 +277,16 @@ begin
   if SwitchGPS.IsChecked then
   begin
     LActivar.Text:='Desactivar GPS';
-    LActivar.TextSettings.FontColor:=4278190080; //negro
-    RectActivar.Fill.Color:=4278255360;          //lime
-    CrcKingOTN.Stroke.Color:=$FF7FFF00;          //chartreuse
+    LActivar.TextSettings.FontColor:=Negro;//4278190080; //negro
+    RectActivar.Fill.Color:=Lima;//4278255360;          //lime
+    CrcKingOTN.Stroke.Color:=Chartreuse;//$FF7FFF00;          //chartreuse
   end
   else
   begin
     LActivar.Text:='Activar GPS';
-    LActivar.TextSettings.FontColor:=4294967295; //blanco
-    RectActivar.Fill.Color:=$FFFF0000;           //rojo
-    CrcKingOTN.Stroke.Color:=$FFFF0000;          //rojo
+    LActivar.TextSettings.FontColor:=Blanco;//4294967295; //blanco
+    RectActivar.Fill.Color:=Rojo;//$FFFF0000;           //rojo
+    CrcKingOTN.Stroke.Color:=Rojo;//$FFFF0000;          //rojo
     LLat.Text:='--.-----';
     LLon.Text:='--.-----';
     LEste.Text:='--';

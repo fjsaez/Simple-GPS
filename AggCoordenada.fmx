@@ -163,8 +163,8 @@ object FrmAggCoord: TFrmAggCoord
         Size.Height = 80.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
-        Viewport.Width = 350.000000000000000000
-        Viewport.Height = 80.000000000000000000
+        Viewport.Width = 346.000000000000000000
+        Viewport.Height = 76.000000000000000000
       end
     end
   end
@@ -187,6 +187,7 @@ object FrmAggCoord: TFrmAggCoord
       ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
       HeaderAppearanceClassName = 'TListHeaderObjects'
       FooterAppearanceClassName = 'TListHeaderObjects'
+      AlternatingColors = True
       Align = Client
       Margins.Left = 5.000000000000000000
       Margins.Top = 5.000000000000000000
@@ -196,6 +197,7 @@ object FrmAggCoord: TFrmAggCoord
       Size.Height = 353.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
+      OnItemClick = ListView1ItemClick
     end
   end
   object Layout9: TLayout
@@ -216,17 +218,42 @@ object FrmAggCoord: TFrmAggCoord
     end
   end
   object Query: TFDQuery
-    ConnectionName = 'Conex'
+    Connection = DMod.FDConn
     SQL.Strings = (
       '')
     Left = 448
     Top = 24
   end
   object QrLista: TFDQuery
-    ConnectionName = 'Conex'
+    Active = True
+    Connection = DMod.FDConn
     SQL.Strings = (
       'select * from Coordenadas order by IDCoord desc')
     Left = 400
     Top = 24
+  end
+  object BindSourceDB: TBindSourceDB
+    DataSet = QrLista
+    ScopeMappings = <>
+    Left = 240
+    Top = 296
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 5
+    object LinkFillControlToField1: TLinkFillControlToField
+      Category = 'Quick Bindings'
+      Control = ListView1
+      Track = True
+      FillDataSource = BindSourceDB
+      FillValueFieldName = 'NorteUTM'
+      FillDisplayFieldName = 'EsteUTM'
+      AutoFill = True
+      FillExpressions = <>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
   end
 end

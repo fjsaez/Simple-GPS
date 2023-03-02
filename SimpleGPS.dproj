@@ -465,6 +465,13 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="Database\DBSimpleGPS.db" Configuration="Release" Class="File">
+                    <Platform Name="Android">
+                        <RemoteDir>assets\</RemoteDir>
+                        <RemoteName>DBSimpleGPS.db</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="Francisco Saez Basico.ttf" Configuration="Release" Class="File">
                     <Platform Name="Android">
                         <RemoteDir>.\assets\internal\</RemoteDir>
@@ -1341,6 +1348,7 @@
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">True</Platform>
             </Platforms>
+            <ModelSupport>False</ModelSupport>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>
