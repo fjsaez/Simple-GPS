@@ -42,9 +42,6 @@ type
     BGuardar: TButton;
     ListView1: TListView;
     SBVolverOK: TSpeedButton;
-    BindSourceDB: TBindSourceDB;
-    BindingsList1: TBindingsList;
-    LinkFillControlToField1: TLinkFillControlToField;
     procedure SBVolverOKClick(Sender: TObject);
     procedure BGuardarClick(Sender: TObject);
     procedure ListView1ItemClick(const Sender: TObject;

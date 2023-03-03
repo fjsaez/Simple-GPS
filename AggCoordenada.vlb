@@ -51,8 +51,7 @@ Coordinates=150,256,60,36
 Coordinates=80,256,60,36
 
 [QrLista]
-Coordinates=283,10,56,36
-Visible=False
+Coordinates=349,20,56,36
 
 [Layout5]
 Coordinates=10,256,60,36
@@ -64,11 +63,5 @@ Coordinates=226,188,70,58
 Coordinates=132,188,84,58
 
 []
-Coordinates=249,379,91,36
-
-[BindingsList1]
-Coordinates=136,87,91,36
-
-[BindSourceDB]
 Coordinates=283,10,106,278
 

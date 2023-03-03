@@ -5,7 +5,7 @@
     </ProjectExtensions>
     <PropertyGroup>
         <DeviceId Condition="'$(Platform)'=='Android'">ae65e5530406</DeviceId>
-        <DeviceId Condition="'$(Platform)'=='Android64'">ae65e5530406</DeviceId>
+        <DeviceId Condition="'$(Platform)'=='Android64'"/>
         <DeviceId Condition="'$(Platform)'=='iOSDevice64'"/>
         <DeviceId Condition="'$(Platform)'=='iOSSimARM64'"/>
     </PropertyGroup>
@@ -203,7 +203,7 @@
             <Overwrite>True</Overwrite>
         </DeployFile>
         <DeployFile Include="Database\DBSimpleGPS.db" Condition="'$(Config)'=='Release'">
-            <RemoteDir>SimpleGPS\assets\</RemoteDir>
+            <RemoteDir>SimpleGPS\assets\internal\</RemoteDir>
             <RemoteName>DBSimpleGPS.db</RemoteName>
             <DeployClass>File</DeployClass>
             <Operation>0</Operation>

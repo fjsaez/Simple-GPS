@@ -50,8 +50,7 @@ Coordinates=521,267,142,51
 Coordinates=715,616,50,33
 
 [FrmAggCoord.QrLista]
-Coordinates=0,0,123,33
-Visible=False
+Coordinates=133,10,123,33
 
 [FrmAggCoord]
 Coordinates=605,616,84,33
@@ -271,4 +270,7 @@ Coordinates=224,10,165,231
 
 [FrmAggCoord.BindingsList1]
 Coordinates=1129,157,155,33
+
+[FrmAggCoord.BindSourceDB]
+Coordinates=0,0,123,33
 

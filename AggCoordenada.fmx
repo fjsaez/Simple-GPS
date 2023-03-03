@@ -1,7 +1,9 @@
 object FrmAggCoord: TFrmAggCoord
+  Enabled = False
   Size.Width = 500.000000000000000000
   Size.Height = 623.000000000000000000
   Size.PlatformDefault = False
+  Visible = False
   object Layout1: TLayout
     Align = Top
     Size.Width = 500.000000000000000000
@@ -231,29 +233,5 @@ object FrmAggCoord: TFrmAggCoord
       'select * from Coordenadas order by IDCoord desc')
     Left = 400
     Top = 24
-  end
-  object BindSourceDB: TBindSourceDB
-    DataSet = QrLista
-    ScopeMappings = <>
-    Left = 240
-    Top = 296
-  end
-  object BindingsList1: TBindingsList
-    Methods = <>
-    OutputConverters = <>
-    Left = 20
-    Top = 5
-    object LinkFillControlToField1: TLinkFillControlToField
-      Category = 'Quick Bindings'
-      Control = ListView1
-      Track = True
-      FillDataSource = BindSourceDB
-      FillValueFieldName = 'NorteUTM'
-      FillDisplayFieldName = 'EsteUTM'
-      AutoFill = True
-      FillExpressions = <>
-      FillHeaderExpressions = <>
-      FillBreakGroups = <>
-    end
   end
 end
