@@ -186,12 +186,11 @@ end;
 
 procedure TFPrinc.FormCreate(Sender: TObject);
 begin
-  showmessage('esto es una prueba');
   LActivar.TextSettings.FontColor:=Blanco;
   LNombre.Font.Family:='1';
-  {FrmAggCoord.ValInicio;
-  FrmAggCoord.Visible:=false;}
-  //LayPrinc.Visible:=true;
+  FrmAggCoord.ValInicio;
+  FrmAggCoord.Visible:=false;
+  LayPrinc.Visible:=true;
 
 end;
 
@@ -255,6 +254,12 @@ procedure TFPrinc.SpeedButton3Click(Sender: TObject);
 begin
   LayPrinc.Visible:=false;
   FrmAggCoord.Visible:=true;
+  FrmAggCoord.LCoordSex.Text:=FrmAggCoord.Coord.LatGMS+', '+
+                              FrmAggCoord.Coord.LonGMS;
+  FrmAggCoord.LCoordDec.Text:=FrmAggCoord.Coord.Lat.ToString+', '+
+                              FrmAggCoord.Coord.Lon.ToString;
+  FrmAggCoord.LCoordUTM.Text:=FrmAggCoord.Coord.EsteUTM.ToString+', '+
+                              FrmAggCoord.Coord.NorteUTM.ToString;
 end;
 
 procedure TFPrinc.SwitchGPSSwitch(Sender: TObject);
