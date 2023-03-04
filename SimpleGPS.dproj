@@ -283,8 +283,8 @@
         <Android_LauncherIcon72>Imagen\GPS_72px.png</Android_LauncherIcon72>
         <Android_LauncherIcon96>Imagen\GPS_96px.png</Android_LauncherIcon96>
         <Android_LauncherIcon144>Imagen\GPS_144px.png</Android_LauncherIcon144>
-        <IncludeAndroid_Splash>False</IncludeAndroid_Splash>
         <IncludeAndroid_NotificationAccentColor>False</IncludeAndroid_NotificationAccentColor>
+        <IncludeAndroid_Splash>False</IncludeAndroid_Splash>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
@@ -300,18 +300,15 @@
         </DelphiCompile>
         <DCCReference Include="Principal.pas">
             <Form>FPrinc</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="Androidapi.JNI.Location.pas"/>
         <DCCReference Include="System.Android.Sensors.pas"/>
         <DCCReference Include="DataMod.pas">
             <Form>DMod</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="AggCoordenada.pas">
             <Form>FrmAggCoord</Form>
-            <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Base">
@@ -462,6 +459,12 @@
                 </DeployFile>
                 <DeployFile LocalName="Android\Release\strings.xml" Configuration="Release" Class="Android_Strings">
                     <Platform Name="Android">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Android\Release\styles-v21.xml" Configuration="Release" Class="AndroidSplashStylesV21">
+                    <Platform Name="Android">
+                        <RemoteName>styles.xml</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

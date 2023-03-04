@@ -1,5 +1,5 @@
 object FrmAggCoord: TFrmAggCoord
-  Enabled = False
+  Align = Client
   Size.Width = 500.000000000000000000
   Size.Height = 610.000000000000000000
   Size.PlatformDefault = False
@@ -68,7 +68,7 @@ object FrmAggCoord: TFrmAggCoord
     Size.Height = 320.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 3
-    object ListView1: TListView
+    object ListView: TListView
       ItemAppearanceClassName = 'TListItemAppearance'
       ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
       HeaderAppearanceClassName = 'TListHeaderObjects'
@@ -83,7 +83,7 @@ object FrmAggCoord: TFrmAggCoord
       Size.Height = 310.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
-      OnItemClick = ListView1ItemClick
+      OnItemClick = ListViewItemClick
     end
   end
   object Layout9: TLayout
@@ -209,7 +209,6 @@ object FrmAggCoord: TFrmAggCoord
     Top = 24
   end
   object QrLista: TFDQuery
-    Active = True
     Connection = DMod.FDConn
     SQL.Strings = (
       'select * from Coordenadas order by IDCoord desc')

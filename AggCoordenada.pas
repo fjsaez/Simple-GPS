@@ -1,4 +1,4 @@
-unit AggCoordenada;
+﻿unit AggCoordenada;
 
 interface
 
@@ -31,7 +31,7 @@ type
     Layout9: TLayout;
     Memo1: TMemo;
     BGuardar: TButton;
-    ListView1: TListView;
+    ListView: TListView;
     SBVolverOK: TSpeedButton;
     Layout2: TLayout;
     Label1: TLabel;
@@ -42,7 +42,7 @@ type
     LCoordSex: TLabel;
     procedure SBVolverOKClick(Sender: TObject);
     procedure BGuardarClick(Sender: TObject);
-    procedure ListView1ItemClick(const Sender: TObject;
+    procedure ListViewItemClick(const Sender: TObject;
       const AItem: TListViewItem);
   private
     { Private declarations }
@@ -88,7 +88,7 @@ begin
   ShowMessage('Coordenada agregada');
 end;
 
-procedure TFrmAggCoord.ListView1ItemClick(const Sender: TObject;
+procedure TFrmAggCoord.ListViewItemClick(const Sender: TObject;
   const AItem: TListViewItem);
 begin
   BGuardar.Text:='Eliminar';
@@ -96,8 +96,8 @@ end;
 
 procedure TFrmAggCoord.SBVolverOKClick(Sender: TObject);
 begin
-  Visible:=false;
   ValInicio;
+  Visible:=false;
 end;
 
 end.

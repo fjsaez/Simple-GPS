@@ -13,6 +13,7 @@ type
   TDMod = class(TDataModule)
     FDConn: TFDConnection;
     FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink;
+    procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,5 +28,10 @@ implementation
 {%CLASSGROUP 'FMX.Controls.TControl'}
 
 {$R *.dfm}
+
+procedure TDMod.DataModuleCreate(Sender: TObject);
+begin
+  FDConn.Connected:=true;
+end;
 
 end.

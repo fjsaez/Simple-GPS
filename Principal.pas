@@ -77,7 +77,7 @@ type
     Label12: TLabel;
     LLonGMS: TLabel;
     Rectangle5: TRectangle;
-    SpeedButton3: TSpeedButton;
+    SBAgregar: TSpeedButton;
     FrmAggCoord: TFrmAggCoord;
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
@@ -88,7 +88,7 @@ type
       const AHeading: THeading);
     procedure BAceptarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure SpeedButton3Click(Sender: TObject);
+    procedure SBAgregarClick(Sender: TObject);
     procedure FrmAggCoordSBAcercaOKClick(Sender: TObject);
   private
     { Private declarations }
@@ -112,6 +112,7 @@ uses
   System.Permissions, FMX.DialogService;
 
 {$R *.fmx}
+{$R *.LgXhdpiPh.fmx ANDROID}
 
 function Orientacion(Grados: double): string;
 begin
@@ -188,10 +189,9 @@ procedure TFPrinc.FormCreate(Sender: TObject);
 begin
   LActivar.TextSettings.FontColor:=Blanco;
   LNombre.Font.Family:='1';
-  FrmAggCoord.ValInicio;
-  FrmAggCoord.Visible:=false;
+  {FrmAggCoord.ValInicio;
+  FrmAggCoord.Visible:=false;}
   LayPrinc.Visible:=true;
-
 end;
 
 procedure TFPrinc.FrmAggCoordSBAcercaOKClick(Sender: TObject);
@@ -250,16 +250,16 @@ begin
   PnlAcerca.Visible:=true;
 end;
 
-procedure TFPrinc.SpeedButton3Click(Sender: TObject);
+procedure TFPrinc.SBAgregarClick(Sender: TObject);
 begin
-  LayPrinc.Visible:=false;
-  FrmAggCoord.Visible:=true;
   FrmAggCoord.LCoordSex.Text:=FrmAggCoord.Coord.LatGMS+', '+
                               FrmAggCoord.Coord.LonGMS;
-  FrmAggCoord.LCoordDec.Text:=FrmAggCoord.Coord.Lat.ToString+', '+
-                              FrmAggCoord.Coord.Lon.ToString;
-  FrmAggCoord.LCoordUTM.Text:=FrmAggCoord.Coord.EsteUTM.ToString+', '+
-                              FrmAggCoord.Coord.NorteUTM.ToString;
+  FrmAggCoord.LCoordDec.Text:=Format('%2.6f',[FrmAggCoord.Coord.Lat])+', '+
+                              Format('%2.6f',[FrmAggCoord.Coord.Lon]);
+  FrmAggCoord.LCoordUTM.Text:=FormatFloat('#0.00',FrmAggCoord.Coord.EsteUTM)+
+                         ', '+FormatFloat('#0.00',FrmAggCoord.Coord.NorteUTM);
+  LayPrinc.Visible:=false;
+  FrmAggCoord.Visible:=true;
 end;
 
 procedure TFPrinc.SwitchGPSSwitch(Sender: TObject);
@@ -304,6 +304,7 @@ begin
     LLonGMS.Text:='--º --'' --"';
     CrcKingOTN.RotationAngle:=0;
   end;
+  SBAgregar.Visible:=SwitchGPS.IsChecked;
 end;
 
 end.
