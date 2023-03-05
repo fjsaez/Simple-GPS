@@ -10,80 +10,6 @@ object FPrinc: TFPrinc
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   DesignerMasterStyle = 3
-  inline FrmAggCoord: TFrmAggCoord
-    Enabled = False
-    Size.Width = 500.000000000000000000
-    Size.Height = 620.000000000000000000
-    Size.PlatformDefault = False
-    Visible = False
-    inherited Layout3: TLayout
-      Position.Y = 150.000000000000000000
-      inherited Layout6: TLayout
-        inherited Memo1: TMemo
-          Viewport.Width = 350.000000000000000000
-          Viewport.Height = 60.000000000000000000
-        end
-      end
-    end
-    inherited Layout7: TLayout
-      Position.Y = 230.000000000000000000
-    end
-    inherited Layout8: TLayout
-      Position.Y = 250.000000000000000000
-    end
-    inherited Layout9: TLayout
-      Position.Y = 570.000000000000000000
-      inherited SBVolverOK: TSpeedButton
-        Size.Width = 48.000000000000000000
-        OnClick = FrmAggCoordSBAcercaOKClick
-      end
-    end
-    inherited Layout2: TLayout
-      Size.Height = 150.000000000000000000
-      inherited Label1: TLabel
-        Margins.Bottom = 5.000000000000000000
-        TextSettings.Font.StyleExt = {00070000000000000004000000}
-      end
-      inherited Label2: TLabel
-        Margins.Top = 5.000000000000000000
-        Margins.Bottom = 5.000000000000000000
-        Position.Y = 70.000000000000000000
-        TextSettings.Font.StyleExt = {00070000000000000004000000}
-      end
-      inherited Label3: TLabel
-        Margins.Top = 5.000000000000000000
-        Margins.Bottom = 5.000000000000000000
-        Position.Y = 130.000000000000000000
-        TextSettings.Font.StyleExt = {00070000000000000004000000}
-      end
-      inherited LCoordUTM: TLabel
-        Margins.Top = 5.000000000000000000
-        Margins.Bottom = 5.000000000000000000
-        Position.Y = 160.000000000000000000
-        TextSettings.Font.StyleExt = {00070000000000000004000000}
-      end
-      inherited LCoordDec: TLabel
-        Margins.Top = 5.000000000000000000
-        Margins.Bottom = 5.000000000000000000
-        Position.Y = 100.000000000000000000
-        TextSettings.Font.StyleExt = {00070000000000000004000000}
-      end
-      inherited LCoordSex: TLabel
-        Margins.Top = 5.000000000000000000
-        Margins.Bottom = 5.000000000000000000
-        Position.Y = 40.000000000000000000
-        TextSettings.Font.StyleExt = {00070000000000000004000000}
-      end
-    end
-    inherited Query: TFDQuery
-      Left = 312
-      Top = 8
-    end
-    inherited QrLista: TFDQuery
-      Left = 368
-      Top = 8
-    end
-  end
   object StyleBook: TStyleBook
     Styles = <
       item
@@ -38004,6 +37930,7 @@ object FPrinc: TFPrinc
     Size.Width = 500.000000000000000000
     Size.Height = 623.000000000000000000
     Size.PlatformDefault = False
+    Visible = False
     TabOrder = 5
     object LayLED: TLayout
       Align = MostTop
@@ -38692,6 +38619,86 @@ object FPrinc: TFPrinc
           OnClick = SBAgregarClick
         end
       end
+    end
+  end
+  inline FrmAggCoord: TFrmAggCoord
+    Align = Client
+    Size.Width = 500.000000000000000000
+    Size.Height = 623.000000000000000000
+    Size.PlatformDefault = False
+    inherited Layout2: TLayout
+      Size.Height = 153.000000000000000000
+      inherited Label1: TLabel
+        Margins.Bottom = 5.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited Label2: TLabel
+        Margins.Top = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Position.Y = 70.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited Label3: TLabel
+        Margins.Top = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Position.Y = 130.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited LCoordUTM: TLabel
+        Margins.Top = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Position.Y = 160.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited LCoordDec: TLabel
+        Margins.Top = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Position.Y = 100.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited LCoordSex: TLabel
+        Margins.Top = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Position.Y = 40.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+    end
+    inherited Layout3: TLayout
+      Position.Y = 153.000000000000000000
+      inherited Layout4: TLayout
+        inherited BGuardar: TButton
+          OnClick = FrmAggCoordBGuardarClick
+        end
+      end
+      inherited Layout6: TLayout
+        inherited MmDescr: TMemo
+          Viewport.Width = 350.000000000000000000
+          Viewport.Height = 60.000000000000000000
+        end
+      end
+    end
+    inherited Layout7: TLayout
+      Position.Y = 233.000000000000000000
+    end
+    inherited Layout8: TLayout
+      Position.Y = 253.000000000000000000
+    end
+    inherited Layout9: TLayout
+      Position.Y = 573.000000000000000000
+      inherited SBVolverOK: TSpeedButton
+        Position.Y = 1.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        OnClick = FrmAggCoordSBVolverOKClick
+      end
+    end
+    inherited Query: TFDQuery
+      Left = 312
+      Top = 8
+    end
+    inherited QrLista: TFDQuery
+      Left = 368
+      Top = 8
     end
   end
   object LctSensor: TLocationSensor

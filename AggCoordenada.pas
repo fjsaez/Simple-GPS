@@ -29,7 +29,7 @@ type
     Layout7: TLayout;
     Layout8: TLayout;
     Layout9: TLayout;
-    Memo1: TMemo;
+    MmDescr: TMemo;
     BGuardar: TButton;
     ListView: TListView;
     SBVolverOK: TSpeedButton;

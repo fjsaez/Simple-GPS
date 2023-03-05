@@ -4,6 +4,107 @@ object FrmAggCoord: TFrmAggCoord
   Size.Height = 610.000000000000000000
   Size.PlatformDefault = False
   Visible = False
+  object Layout2: TLayout
+    Align = Client
+    Size.Width = 500.000000000000000000
+    Size.Height = 140.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Label1: TLabel
+      Align = Top
+      StyledSettings = [Family, Size, FontColor]
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 480.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.HorzAlign = Center
+      Text = 'Geo. sexagesimales (lon, lat):'
+      TabOrder = 1
+    end
+    object Label2: TLabel
+      Align = Top
+      StyledSettings = [Family, Size, FontColor]
+      Margins.Left = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 50.000000000000000000
+      Size.Width = 480.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.HorzAlign = Center
+      Text = 'Geo. decimales (lon, lat):'
+      TabOrder = 3
+    end
+    object Label3: TLabel
+      Align = Top
+      StyledSettings = [Family, Size, FontColor]
+      Margins.Left = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 90.000000000000000000
+      Size.Width = 480.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.HorzAlign = Center
+      Text = 'UTM (este, norte):'
+      TabOrder = 5
+    end
+    object LCoordUTM: TLabel
+      Align = Top
+      StyledSettings = [Family, Size]
+      Margins.Left = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 110.000000000000000000
+      Size.Width = 480.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.FontColor = claChartreuse
+      TextSettings.HorzAlign = Center
+      Text = '--'
+      TabOrder = 4
+    end
+    object LCoordDec: TLabel
+      Align = Top
+      StyledSettings = [Family, Size]
+      Margins.Left = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 70.000000000000000000
+      Size.Width = 480.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.FontColor = claChartreuse
+      TextSettings.HorzAlign = Center
+      Text = '--'
+      TabOrder = 2
+    end
+    object LCoordSex: TLabel
+      Align = Top
+      StyledSettings = [Family, Size]
+      Margins.Left = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 30.000000000000000000
+      Size.Width = 480.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.FontColor = claChartreuse
+      TextSettings.HorzAlign = Center
+      Text = '--'
+      TabOrder = 0
+    end
+  end
   object Layout3: TLayout
     Align = Bottom
     Position.Y = 140.000000000000000000
@@ -34,10 +135,11 @@ object FrmAggCoord: TFrmAggCoord
       Size.Height = 80.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
-      object Memo1: TMemo
+      object MmDescr: TMemo
         Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
         DataDetectorTypes = []
         MaxLength = 50
+        StyledSettings = [Family, Size]
         TextSettings.WordWrap = True
         Align = Client
         Margins.Left = 10.000000000000000000
@@ -48,8 +150,8 @@ object FrmAggCoord: TFrmAggCoord
         Size.Height = 60.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
-        Viewport.Width = 346.000000000000000000
-        Viewport.Height = 56.000000000000000000
+        Viewport.Width = 350.000000000000000000
+        Viewport.Height = 60.000000000000000000
       end
     end
   end
@@ -101,104 +203,6 @@ object FrmAggCoord: TFrmAggCoord
       StyleLookup = 'arrowlefttoolbutton'
       Text = 'arrowlefttoolbutton'
       OnClick = SBVolverOKClick
-    end
-  end
-  object Layout2: TLayout
-    Align = Client
-    Size.Width = 500.000000000000000000
-    Size.Height = 140.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 0
-    object Label1: TLabel
-      Align = Top
-      StyledSettings = [Family, Size, FontColor]
-      Margins.Left = 10.000000000000000000
-      Margins.Top = 10.000000000000000000
-      Margins.Right = 10.000000000000000000
-      Position.X = 10.000000000000000000
-      Position.Y = 10.000000000000000000
-      Size.Width = 480.000000000000000000
-      Size.Height = 20.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.HorzAlign = Center
-      Text = 'Geo. sexagesimales:'
-      TabOrder = 1
-    end
-    object Label2: TLabel
-      Align = Top
-      StyledSettings = [Family, Size, FontColor]
-      Margins.Left = 10.000000000000000000
-      Margins.Right = 10.000000000000000000
-      Position.X = 10.000000000000000000
-      Position.Y = 50.000000000000000000
-      Size.Width = 480.000000000000000000
-      Size.Height = 20.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.HorzAlign = Center
-      Text = 'Geo. decimales:'
-      TabOrder = 3
-    end
-    object Label3: TLabel
-      Align = Top
-      StyledSettings = [Family, Size, FontColor]
-      Margins.Left = 10.000000000000000000
-      Margins.Right = 10.000000000000000000
-      Position.X = 10.000000000000000000
-      Position.Y = 90.000000000000000000
-      Size.Width = 480.000000000000000000
-      Size.Height = 20.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.HorzAlign = Center
-      Text = 'UTM:'
-      TabOrder = 5
-    end
-    object LCoordUTM: TLabel
-      Align = Top
-      StyledSettings = [Family, Size, FontColor]
-      Margins.Left = 10.000000000000000000
-      Margins.Right = 10.000000000000000000
-      Position.X = 10.000000000000000000
-      Position.Y = 110.000000000000000000
-      Size.Width = 480.000000000000000000
-      Size.Height = 20.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.HorzAlign = Center
-      Text = '--'
-      TabOrder = 4
-    end
-    object LCoordDec: TLabel
-      Align = Top
-      StyledSettings = [Family, Size, FontColor]
-      Margins.Left = 10.000000000000000000
-      Margins.Right = 10.000000000000000000
-      Position.X = 10.000000000000000000
-      Position.Y = 70.000000000000000000
-      Size.Width = 480.000000000000000000
-      Size.Height = 20.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.HorzAlign = Center
-      Text = '--'
-      TabOrder = 2
-    end
-    object LCoordSex: TLabel
-      Align = Top
-      StyledSettings = [Family, Size, FontColor]
-      Margins.Left = 10.000000000000000000
-      Margins.Right = 10.000000000000000000
-      Position.X = 10.000000000000000000
-      Position.Y = 30.000000000000000000
-      Size.Width = 480.000000000000000000
-      Size.Height = 20.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.HorzAlign = Center
-      Text = '--'
-      TabOrder = 0
     end
   end
   object Query: TFDQuery

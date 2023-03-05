@@ -2,38 +2,70 @@ inherited FPrinc_LgXhdpiPh: TFPrinc_LgXhdpiPh
   ClientHeight = 695
   ClientWidth = 450
   DesignerMasterStyle = 3
-  inherited FrmAggCoord: TFrmAggCoord
-    Position.Y = 40.000000000000000000
-    inherited Layout3: TLayout
+  inherited FrmAggCoord: TFrmAggCoord [0]
+    Enabled = False
+    Size.Width = 450.000000000000000000
+    Size.Height = 695.000000000000000000
+    inherited Layout3: TLayout [0]
+      Position.Y = 225.000000000000000000
+      Size.Width = 450.000000000000000000
       inherited Layout6: TLayout
-        inherited Memo1: TMemo
-          Viewport.Width = 350.000000000000000000
+        Size.Width = 320.000000000000000000
+        inherited MmDescr: TMemo
+          Size.Width = 300.000000000000000000
+          Viewport.Width = 300.000000000000000000
           Viewport.Height = 60.000000000000000000
         end
       end
     end
-    inherited Layout2: TLayout
+    inherited Layout7: TLayout [1]
+      Position.Y = 305.000000000000000000
+      Size.Width = 450.000000000000000000
+    end
+    inherited Layout8: TLayout [2]
+      Position.Y = 375.000000000000000000
+      Size.Width = 450.000000000000000000
+      inherited ListView: TListView
+        Size.Width = 440.000000000000000000
+        OnItemClick = nil
+      end
+    end
+    inherited Layout9: TLayout [3]
+      Position.Y = 325.000000000000000000
+      Size.Width = 450.000000000000000000
+    end
+    inherited Layout2: TLayout [4]
+      Size.Width = 450.000000000000000000
+      Size.Height = 225.000000000000000000
       inherited Label1: TLabel
+        Size.Width = 430.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
       end
       inherited Label2: TLabel
+        Size.Width = 430.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
       end
       inherited Label3: TLabel
+        Size.Width = 430.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
       end
       inherited LCoordUTM: TLabel
+        Size.Width = 430.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
       end
       inherited LCoordDec: TLabel
+        Size.Width = 430.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
       end
       inherited LCoordSex: TLabel
+        Size.Width = 430.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
       end
     end
   end
-  inherited PnlAcerca: TPanel
+  inherited StyleBook: TStyleBook [1]
+  end
+  inherited PnlAcerca: TPanel [2]
     inherited Rectangle2: TRectangle
       inherited Layout5: TLayout
         inherited Image1: TImage
@@ -168,7 +200,7 @@ inherited FPrinc_LgXhdpiPh: TFPrinc_LgXhdpiPh
       end
     end
   end
-  inherited LayPrinc: TLayout
+  inherited LayPrinc: TLayout [3]
     Size.Width = 450.000000000000000000
     Size.Height = 695.000000000000000000
     inherited LayLED: TLayout

@@ -89,7 +89,8 @@ type
     procedure BAceptarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure SBAgregarClick(Sender: TObject);
-    procedure FrmAggCoordSBAcercaOKClick(Sender: TObject);
+    procedure FrmAggCoordSBVolverOKClick(Sender: TObject);
+    procedure FrmAggCoordBGuardarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -189,12 +190,18 @@ procedure TFPrinc.FormCreate(Sender: TObject);
 begin
   LActivar.TextSettings.FontColor:=Blanco;
   LNombre.Font.Family:='1';
-  {FrmAggCoord.ValInicio;
-  FrmAggCoord.Visible:=false;}
+  SBAgregar.Visible:=false;
+  FrmAggCoord.ValInicio;
+  FrmAggCoord.Visible:=false;
   LayPrinc.Visible:=true;
 end;
 
-procedure TFPrinc.FrmAggCoordSBAcercaOKClick(Sender: TObject);
+procedure TFPrinc.FrmAggCoordBGuardarClick(Sender: TObject);
+begin
+  FrmAggCoord.BGuardarClick(Sender);
+end;
+
+procedure TFPrinc.FrmAggCoordSBVolverOKClick(Sender: TObject);
 begin
   FrmAggCoord.SBVolverOKClick(Sender);
   FrmAggCoord.Visible:=false;
@@ -252,10 +259,10 @@ end;
 
 procedure TFPrinc.SBAgregarClick(Sender: TObject);
 begin
-  FrmAggCoord.LCoordSex.Text:=FrmAggCoord.Coord.LatGMS+', '+
-                              FrmAggCoord.Coord.LonGMS;
-  FrmAggCoord.LCoordDec.Text:=Format('%2.6f',[FrmAggCoord.Coord.Lat])+', '+
-                              Format('%2.6f',[FrmAggCoord.Coord.Lon]);
+  FrmAggCoord.LCoordSex.Text:=FrmAggCoord.Coord.LonGMS+', '+
+                              FrmAggCoord.Coord.LatGMS;
+  FrmAggCoord.LCoordDec.Text:=Format('%2.6f',[FrmAggCoord.Coord.Lon])+', '+
+                              Format('%2.6f',[FrmAggCoord.Coord.Lat]);
   FrmAggCoord.LCoordUTM.Text:=FormatFloat('#0.00',FrmAggCoord.Coord.EsteUTM)+
                          ', '+FormatFloat('#0.00',FrmAggCoord.Coord.NorteUTM);
   LayPrinc.Visible:=false;

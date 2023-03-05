@@ -20,6 +20,7 @@ begin
   Application.FormFactor.Orientations:=[TFormOrientation.Portrait,
     TFormOrientation.InvertedPortrait, TFormOrientation.Landscape,
     TFormOrientation.InvertedLandscape];
+  Application.CreateForm(TDMod, DMod);
   Application.CreateForm(TFPrinc, FPrinc);
   Application.Run;
 end.
