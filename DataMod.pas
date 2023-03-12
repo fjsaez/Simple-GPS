@@ -1,4 +1,4 @@
-unit DataMod;
+﻿unit DataMod;
 
 interface
 
@@ -31,6 +31,7 @@ implementation
 
 procedure TDMod.DataModuleCreate(Sender: TObject);
 begin
+  FDConn.Params.Values['Database']:='$(DOC)/DBSimpleGPS.db';
   FDConn.Connected:=true;
 end;
 

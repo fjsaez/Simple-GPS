@@ -4,205 +4,212 @@ object FrmAggCoord: TFrmAggCoord
   Size.Height = 610.000000000000000000
   Size.PlatformDefault = False
   Visible = False
-  object Layout2: TLayout
+  object LayPrinc: TLayout
     Align = Client
     Size.Width = 500.000000000000000000
-    Size.Height = 140.000000000000000000
+    Size.Height = 610.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 0
-    object Label1: TLabel
-      Align = Top
-      StyledSettings = [Family, Size, FontColor]
-      Margins.Left = 10.000000000000000000
-      Margins.Top = 10.000000000000000000
-      Margins.Right = 10.000000000000000000
-      Position.X = 10.000000000000000000
-      Position.Y = 10.000000000000000000
-      Size.Width = 480.000000000000000000
-      Size.Height = 20.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.HorzAlign = Center
-      Text = 'Geo. sexagesimales (lon, lat):'
-      TabOrder = 1
-    end
-    object Label2: TLabel
-      Align = Top
-      StyledSettings = [Family, Size, FontColor]
-      Margins.Left = 10.000000000000000000
-      Margins.Right = 10.000000000000000000
-      Position.X = 10.000000000000000000
-      Position.Y = 50.000000000000000000
-      Size.Width = 480.000000000000000000
-      Size.Height = 20.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.HorzAlign = Center
-      Text = 'Geo. decimales (lon, lat):'
-      TabOrder = 3
-    end
-    object Label3: TLabel
-      Align = Top
-      StyledSettings = [Family, Size, FontColor]
-      Margins.Left = 10.000000000000000000
-      Margins.Right = 10.000000000000000000
-      Position.X = 10.000000000000000000
-      Position.Y = 90.000000000000000000
-      Size.Width = 480.000000000000000000
-      Size.Height = 20.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.HorzAlign = Center
-      Text = 'UTM (este, norte):'
-      TabOrder = 5
-    end
-    object LCoordUTM: TLabel
-      Align = Top
-      StyledSettings = [Family, Size]
-      Margins.Left = 10.000000000000000000
-      Margins.Right = 10.000000000000000000
-      Position.X = 10.000000000000000000
-      Position.Y = 110.000000000000000000
-      Size.Width = 480.000000000000000000
-      Size.Height = 20.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.FontColor = claChartreuse
-      TextSettings.HorzAlign = Center
-      Text = '--'
-      TabOrder = 4
-    end
-    object LCoordDec: TLabel
-      Align = Top
-      StyledSettings = [Family, Size]
-      Margins.Left = 10.000000000000000000
-      Margins.Right = 10.000000000000000000
-      Position.X = 10.000000000000000000
-      Position.Y = 70.000000000000000000
-      Size.Width = 480.000000000000000000
-      Size.Height = 20.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.FontColor = claChartreuse
-      TextSettings.HorzAlign = Center
-      Text = '--'
-      TabOrder = 2
-    end
-    object LCoordSex: TLabel
-      Align = Top
-      StyledSettings = [Family, Size]
-      Margins.Left = 10.000000000000000000
-      Margins.Right = 10.000000000000000000
-      Position.X = 10.000000000000000000
-      Position.Y = 30.000000000000000000
-      Size.Width = 480.000000000000000000
-      Size.Height = 20.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.FontColor = claChartreuse
-      TextSettings.HorzAlign = Center
-      Text = '--'
-      TabOrder = 0
-    end
-  end
-  object Layout3: TLayout
-    Align = Bottom
-    Position.Y = 140.000000000000000000
-    Size.Width = 500.000000000000000000
-    Size.Height = 80.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 1
-    object Layout4: TLayout
-      Align = Right
-      Position.X = 370.000000000000000000
-      Size.Width = 130.000000000000000000
-      Size.Height = 80.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 0
-      object BGuardar: TButton
-        Align = Center
-        Size.Width = 88.000000000000000000
-        Size.Height = 41.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 0
-        Text = 'Guardar'
-        OnClick = BGuardarClick
-      end
-    end
-    object Layout6: TLayout
+    TabOrder = 2
+    object Layout2: TLayout
       Align = Client
-      Size.Width = 370.000000000000000000
-      Size.Height = 80.000000000000000000
+      Size.Width = 500.000000000000000000
+      Size.Height = 140.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 1
-      object MmDescr: TMemo
-        Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
-        DataDetectorTypes = []
-        MaxLength = 50
-        StyledSettings = [Family, Size]
-        TextSettings.WordWrap = True
-        Align = Client
+      TabOrder = 0
+      object LTit1: TLabel
+        Align = Top
+        StyledSettings = [Family, Size, FontColor]
         Margins.Left = 10.000000000000000000
         Margins.Top = 10.000000000000000000
         Margins.Right = 10.000000000000000000
-        Margins.Bottom = 10.000000000000000000
-        Size.Width = 350.000000000000000000
-        Size.Height = 60.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 10.000000000000000000
+        Size.Width = 480.000000000000000000
+        Size.Height = 20.000000000000000000
         Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Center
+        Text = 'Geo. sexagesimales (lon, lat):'
+        TabOrder = 1
+      end
+      object LTit2: TLabel
+        Align = Top
+        StyledSettings = [Family, Size, FontColor]
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 50.000000000000000000
+        Size.Width = 480.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Center
+        Text = 'Geo. decimales (lon, lat):'
+        TabOrder = 3
+      end
+      object LTit3: TLabel
+        Align = Top
+        StyledSettings = [Family, Size, FontColor]
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 90.000000000000000000
+        Size.Width = 480.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Center
+        Text = 'UTM (este, norte):'
+        TabOrder = 5
+      end
+      object LCoordUTM: TLabel
+        Align = Top
+        StyledSettings = [Family, Size]
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 110.000000000000000000
+        Size.Width = 480.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claChartreuse
+        TextSettings.HorzAlign = Center
+        Text = '--'
+        TabOrder = 4
+      end
+      object LCoordDec: TLabel
+        Align = Top
+        StyledSettings = [Family, Size]
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 70.000000000000000000
+        Size.Width = 480.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claChartreuse
+        TextSettings.HorzAlign = Center
+        Text = '--'
+        TabOrder = 2
+      end
+      object LCoordSex: TLabel
+        Align = Top
+        StyledSettings = [Family, Size]
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 30.000000000000000000
+        Size.Width = 480.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claChartreuse
+        TextSettings.HorzAlign = Center
+        Text = '--'
         TabOrder = 0
-        Viewport.Width = 350.000000000000000000
-        Viewport.Height = 60.000000000000000000
       end
     end
-  end
-  object Layout7: TLayout
-    Align = Bottom
-    Position.Y = 220.000000000000000000
-    Size.Width = 500.000000000000000000
-    Size.Height = 20.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 2
-  end
-  object Layout8: TLayout
-    Align = Bottom
-    Position.Y = 240.000000000000000000
-    Size.Width = 500.000000000000000000
-    Size.Height = 320.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 3
-    object ListView: TListView
-      ItemAppearanceClassName = 'TListItemAppearance'
-      ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
-      HeaderAppearanceClassName = 'TListHeaderObjects'
-      FooterAppearanceClassName = 'TListHeaderObjects'
-      AlternatingColors = True
-      Align = Client
-      Margins.Left = 5.000000000000000000
-      Margins.Top = 5.000000000000000000
-      Margins.Right = 5.000000000000000000
-      Margins.Bottom = 5.000000000000000000
-      Size.Width = 490.000000000000000000
-      Size.Height = 310.000000000000000000
+    object Layout3: TLayout
+      Align = Bottom
+      Position.Y = 140.000000000000000000
+      Size.Width = 500.000000000000000000
+      Size.Height = 80.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 0
-      OnItemClick = ListViewItemClick
+      TabOrder = 1
+      object Layout4: TLayout
+        Align = Right
+        Position.X = 370.000000000000000000
+        Size.Width = 130.000000000000000000
+        Size.Height = 80.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object BGuardar: TButton
+          Align = Center
+          Size.Width = 88.000000000000000000
+          Size.Height = 41.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = 'Guardar'
+          OnClick = BGuardarClick
+        end
+      end
+      object LayoutDescr: TLayout
+        Align = Client
+        Size.Width = 370.000000000000000000
+        Size.Height = 80.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object MmDescr: TMemo
+          Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+          DataDetectorTypes = []
+          MaxLength = 50
+          StyledSettings = [Family, Size]
+          TextSettings.WordWrap = True
+          Align = Client
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Size.Width = 350.000000000000000000
+          Size.Height = 60.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Viewport.Width = 346.000000000000000000
+          Viewport.Height = 56.000000000000000000
+        end
+      end
     end
-  end
-  object Layout9: TLayout
-    Align = Bottom
-    Position.Y = 560.000000000000000000
-    Size.Width = 500.000000000000000000
-    Size.Height = 50.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 4
-    object SBVolverOK: TSpeedButton
-      Align = Left
-      Size.Width = 50.000000000000000000
+    object Layout7: TLayout
+      Align = Bottom
+      Position.Y = 220.000000000000000000
+      Size.Width = 500.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+    end
+    object LayoutLista: TLayout
+      Align = Bottom
+      Position.Y = 240.000000000000000000
+      Size.Width = 500.000000000000000000
+      Size.Height = 320.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      object ListView: TListView
+        ItemAppearanceClassName = 'TListItemAppearance'
+        ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        AlternatingColors = True
+        Align = Client
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Size.Width = 490.000000000000000000
+        Size.Height = 310.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        OnItemClick = ListViewItemClick
+      end
+    end
+    object LayoutRegreso: TLayout
+      Align = Bottom
+      Position.Y = 560.000000000000000000
+      Size.Width = 500.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
-      StyleLookup = 'arrowlefttoolbutton'
-      Text = 'arrowlefttoolbutton'
-      OnClick = SBVolverOKClick
+      TabOrder = 4
+      object SBVolverOK: TSpeedButton
+        Align = Left
+        Size.Width = 50.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'arrowlefttoolbutton'
+        Text = 'arrowlefttoolbutton'
+        OnClick = SBVolverOKClick
+      end
     end
   end
   object Query: TFDQuery
