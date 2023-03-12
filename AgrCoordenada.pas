@@ -1,17 +1,16 @@
-﻿unit AggCoordenada;
+﻿unit AgrCoordenada;
 
 interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
-  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.DApt.Intf,
-  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FMX.Controls.Presentation,
-  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  Data.DB, FMX.Layouts, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo, FMX.ListView,
-  FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
-  System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
-  Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope;
+  FMX.Layouts, FMX.Controls.Presentation, FMX.ListView.Types, FMX.ListView,
+  FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.Memo.Types,
+  FMX.ScrollBox, FMX.Memo, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, FMX.Objects;
 
 type
   TCoord = record
@@ -20,27 +19,27 @@ type
     LatGMS,LonGMS,Descripcion: string;
     Fecha: TDate;
   end;
-  TFrmAggCoord = class(TFrame)
+  TFrmAgrCoord = class(TFrame)
+    LCoordUTM: TLabel;
+    LTit3: TLabel;
+    LCoordDec: TLabel;
+    LTit2: TLabel;
+    LCoordSex: TLabel;
+    LTit1: TLabel;
+    Layout6: TLayout;
+    Layout7: TLayout;
+    LstVw: TListView;
+    SBVolver: TSpeedButton;
+    MemoDescr: TMemo;
+    BGuardar: TButton;
     Query: TFDQuery;
     QrLista: TFDQuery;
-    LayoutDescr: TLayout;
-    Layout7: TLayout;
-    LayoutLista: TLayout;
-    LayoutRegreso: TLayout;
-    MmDescr: TMemo;
-    BGuardar: TButton;
-    ListView: TListView;
-    SBVolverOK: TSpeedButton;
-    LTit2: TLabel;
-    LTit3: TLabel;
-    LCoordUTM: TLabel;
-    LCoordDec: TLabel;
-    LCoordSex: TLabel;
-    LayPrinc: TLayout;
-    procedure SBVolverOKClick(Sender: TObject);
+    Rectangle1: TRectangle;
+    Rectangle2: TRectangle;
+    LTotPtos: TLabel;
+    procedure SBVolverClick(Sender: TObject);
     procedure BGuardarClick(Sender: TObject);
-    procedure ListViewItemClick(const Sender: TObject;
-      const AItem: TListViewItem);
+    procedure MemoDescrChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,11 +50,9 @@ type
 
 implementation
 
-uses DataMod;
-
 {$R *.fmx}
 
-procedure TFrmAggCoord.ValInicio;
+procedure TFrmAgrCoord.ValInicio;
 begin
   Coord.IDCoord:=0;
   Coord.EsteUTM:=0.0;
@@ -68,8 +65,9 @@ begin
   Coord.Fecha:=Now;
 end;
 
-procedure TFrmAggCoord.BGuardarClick(Sender: TObject);
+procedure TFrmAgrCoord.BGuardarClick(Sender: TObject);
 begin
+  Coord.Descripcion:=Trim(MemoDescr.Text);
   Query.SQL.Text:='insert into Coordenadas (EsteUTM,NorteUTM,Lat,Lon,LatGMS,'+
     'LonGMS,Descripcion,Fecha) values (:esu,:nou,:lat,:lon,:lag,:log,:dsc,:fch)';
   Query.ParamByName('esu').AsSingle:=Coord.EsteUTM;
@@ -82,18 +80,18 @@ begin
   Query.ParamByName('fch').AsDate:=Coord.Fecha;
   Query.ExecSQL;
   ValInicio;
+  MemoDescr.Text:='';
+  QrLista.Refresh;
   ShowMessage('Coordenada agregada');
 end;
 
-procedure TFrmAggCoord.ListViewItemClick(const Sender: TObject;
-  const AItem: TListViewItem);
+procedure TFrmAgrCoord.MemoDescrChange(Sender: TObject);
 begin
-  BGuardar.Text:='Eliminar';
+  BGuardar.Enabled:=Trim(MemoDescr.Text)<>'';
 end;
 
-procedure TFrmAggCoord.SBVolverOKClick(Sender: TObject);
+procedure TFrmAgrCoord.SBVolverClick(Sender: TObject);
 begin
-  ValInicio;
   Visible:=false;
 end;
 

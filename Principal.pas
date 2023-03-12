@@ -7,7 +7,7 @@ uses
   System.Sensors, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Platform.Android,
   System.Sensors.Components, FMX.Objects, UTM_WGS84, Androidapi.JNI.Location,
-  FMX.FontGlyphs.Android, AggCoordenada;
+  FMX.FontGlyphs.Android, AgrCoordenada;
 
 type
   TFPrinc = class(TForm)
@@ -78,7 +78,7 @@ type
     LLonGMS: TLabel;
     Rectangle5: TRectangle;
     SBAgregar: TSpeedButton;
-    FrmAggCoord: TFrmAggCoord;
+    FrmAgrCoord1: TFrmAgrCoord;
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
     procedure SwitchGPSSwitch(Sender: TObject);
@@ -89,8 +89,7 @@ type
     procedure BAceptarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure SBAgregarClick(Sender: TObject);
-    procedure FrmAggCoordSBVolverOKClick(Sender: TObject);
-    procedure FrmAggCoordBGuardarClick(Sender: TObject);
+    procedure FrmAgrCoord1SBVolverClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -191,20 +190,18 @@ begin
   LActivar.TextSettings.FontColor:=Blanco;
   LNombre.Font.Family:='1';
   SBAgregar.Visible:=false;
-  FrmAggCoord.ValInicio;
-  FrmAggCoord.Visible:=false;
+  FrmAgrCoord1.ValInicio;
+  FrmAgrCoord1.Visible:=false;
   LayPrinc.Visible:=true;
+  FrmAgrCoord1.QrLista.Open;
+  FrmAgrCoord1.LTotPtos.Text:='Total puntos: '+
+    FrmAgrCoord1.QrLista.RecordCount.ToString;
 end;
 
-procedure TFPrinc.FrmAggCoordBGuardarClick(Sender: TObject);
+procedure TFPrinc.FrmAgrCoord1SBVolverClick(Sender: TObject);
 begin
-  FrmAggCoord.BGuardarClick(Sender);
-end;
-
-procedure TFPrinc.FrmAggCoordSBVolverOKClick(Sender: TObject);
-begin
-  FrmAggCoord.SBVolverOKClick(Sender);
-  FrmAggCoord.Visible:=false;
+  FrmAgrCoord1.SBVolverClick(Sender);
+  FrmAgrCoord1.Visible:=false;
   LayPrinc.Visible:=true;
 end;
 
@@ -237,13 +234,13 @@ begin
   LLatGMS.Text:=DecAGrados(LatLon.Lat,true);
   LLonGMS.Text:=DecAGrados(LatLon.Lon,false);
   //carga el registro:
-  FrmAggCoord.Coord.EsteUTM:=UTM.X;
-  FrmAggCoord.Coord.NorteUTM:=UTM.Y;
-  FrmAggCoord.Coord.Lat:=NewLocation.Latitude;
-  FrmAggCoord.Coord.Lon:=NewLocation.Longitude;
-  FrmAggCoord.Coord.LatGMS:=LLatGMS.Text;
-  FrmAggCoord.Coord.LonGMS:=LLonGMS.Text;
-  FrmAggCoord.Coord.Fecha:=Now;
+  FrmAgrCoord1.Coord.EsteUTM:=UTM.X;
+  FrmAgrCoord1.Coord.NorteUTM:=UTM.Y;
+  FrmAgrCoord1.Coord.Lat:=NewLocation.Latitude;
+  FrmAgrCoord1.Coord.Lon:=NewLocation.Longitude;
+  FrmAgrCoord1.Coord.LatGMS:=LLatGMS.Text;
+  FrmAgrCoord1.Coord.LonGMS:=LLonGMS.Text;
+  FrmAgrCoord1.Coord.Fecha:=Now;
 end;
 
 procedure TFPrinc.SpeedButton1Click(Sender: TObject);
@@ -259,14 +256,14 @@ end;
 
 procedure TFPrinc.SBAgregarClick(Sender: TObject);
 begin
-  FrmAggCoord.LCoordSex.Text:=FrmAggCoord.Coord.LonGMS+', '+
-                              FrmAggCoord.Coord.LatGMS;
-  FrmAggCoord.LCoordDec.Text:=Format('%2.6f',[FrmAggCoord.Coord.Lon])+', '+
-                              Format('%2.6f',[FrmAggCoord.Coord.Lat]);
-  FrmAggCoord.LCoordUTM.Text:=FormatFloat('#0.00',FrmAggCoord.Coord.EsteUTM)+
-                         ', '+FormatFloat('#0.00',FrmAggCoord.Coord.NorteUTM);
+  FrmAgrCoord1.LCoordSex.Text:=FrmAgrCoord1.Coord.LonGMS+', '+
+                              FrmAgrCoord1.Coord.LatGMS;
+  FrmAgrCoord1.LCoordDec.Text:=Format('%2.6f',[FrmAgrCoord1.Coord.Lon])+', '+
+                              Format('%2.6f',[FrmAgrCoord1.Coord.Lat]);
+  FrmAgrCoord1.LCoordUTM.Text:=FormatFloat('#0.00',FrmAgrCoord1.Coord.EsteUTM)+
+                         ', '+FormatFloat('#0.00',FrmAgrCoord1.Coord.NorteUTM);
   LayPrinc.Visible:=false;
-  FrmAggCoord.Visible:=true;
+  FrmAgrCoord1.Visible:=true;
 end;
 
 procedure TFPrinc.SwitchGPSSwitch(Sender: TObject);
@@ -283,7 +280,7 @@ begin
       else
       begin
         SwitchGPS.IsChecked:=false;
-        FrmAggCoord.ValInicio;
+        FrmAgrCoord1.ValInicio;
         TDialogService.ShowMessage('Permiso de Localización no está permitido');
       end;
     end);

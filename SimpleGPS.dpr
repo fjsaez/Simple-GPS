@@ -10,7 +10,7 @@ uses
   Androidapi.JNI.Location in 'Androidapi.JNI.Location.pas',
   System.Android.Sensors in 'System.Android.Sensors.pas',
   DataMod in 'DataMod.pas' {DMod: TDataModule},
-  AggCoordenada in 'AggCoordenada.pas' {FrmAggCoord: TFrame};
+  AgrCoordenada in 'AgrCoordenada.pas' {FrmAgrCoord: TFrame};
 
 {$R *.res}
 
