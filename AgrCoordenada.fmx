@@ -136,16 +136,16 @@ object FrmAgrCoord: TFrmAgrCoord
             TextSettings.WordWrap = True
             OnChange = MemoDescrChange
             Align = Client
-            Margins.Left = 10.000000000000000000
-            Margins.Top = 10.000000000000000000
-            Margins.Right = 10.000000000000000000
-            Margins.Bottom = 10.000000000000000000
-            Size.Width = 230.000000000000000000
-            Size.Height = 60.000000000000000000
+            Margins.Left = 5.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 5.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Size.Width = 240.000000000000000000
+            Size.Height = 70.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
-            Viewport.Width = 226.000000000000000000
-            Viewport.Height = 56.000000000000000000
+            Viewport.Width = 236.000000000000000000
+            Viewport.Height = 66.000000000000000000
           end
         end
       end
@@ -192,12 +192,11 @@ object FrmAgrCoord: TFrmAgrCoord
           ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
           HeaderAppearanceClassName = 'TListHeaderObjects'
           FooterAppearanceClassName = 'TListHeaderObjects'
+          Align = Client
           Margins.Left = 5.000000000000000000
           Margins.Top = 5.000000000000000000
           Margins.Right = 5.000000000000000000
           Margins.Bottom = 5.000000000000000000
-          Position.X = 5.000000000000000000
-          Position.Y = 5.000000000000000000
           Size.Width = 490.000000000000000000
           Size.Height = 310.000000000000000000
           Size.PlatformDefault = False

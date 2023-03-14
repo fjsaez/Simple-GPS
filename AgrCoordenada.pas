@@ -79,9 +79,9 @@ begin
   Query.ParamByName('dsc').AsString:=Coord.Descripcion;
   Query.ParamByName('fch').AsDate:=Coord.Fecha;
   Query.ExecSQL;
+  QrLista.Refresh;
   ValInicio;
   MemoDescr.Text:='';
-  QrLista.Refresh;
   ShowMessage('Coordenada agregada');
 end;
 
