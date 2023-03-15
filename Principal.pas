@@ -312,36 +312,3 @@ begin
 end;
 
 end.
-
-(*
-
-implementation
-
-uses
-  System.Permissions,
-  FMX.DialogService;
-
-
-procedure TLocationForm.swLocationSensorActiveSwitch(Sender: TObject);
-const
-  PermissionAccessFineLocation = 'android.permission.ACCESS_FINE_LOCATION';
-begin
-{$IFDEF ANDROID}
-  PermissionsService.RequestPermissions([PermissionAccessFineLocation],
-    procedure(const APermissions: TClassicStringDynArray; const AGrantResults: TClassicPermissionStatusDynArray)
-    begin
-      if (Length(AGrantResults) = 1) and (AGrantResults[0] = TPermissionStatus.Granted) then
-        { activate or deactivate the location sensor }
-        LocationSensor1.Active := swLocationSensorActive.IsChecked
-      else
-      begin
-        swLocationSensorActive.IsChecked := False;
-
-        TDialogService.ShowMessage('Location permission not granted');
-      end;
-    end);
-{$ELSE}
-  LocationSensor1.Active := swLocationSensorActive.IsChecked;
-{$ENDIF}
-end;
-*)
