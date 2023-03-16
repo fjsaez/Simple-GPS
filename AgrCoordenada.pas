@@ -68,6 +68,7 @@ end;
 procedure TFrmAgrCoord.BGuardarClick(Sender: TObject);
 begin
   Coord.Descripcion:=Trim(MemoDescr.Text);
+  Coord.Fecha:=Now;
   Query.SQL.Text:='insert into Coordenadas (EsteUTM,NorteUTM,Lat,Lon,LatGMS,'+
     'LonGMS,Descripcion,Fecha) values (:esu,:nou,:lat,:lon,:lag,:log,:dsc,:fch)';
   Query.ParamByName('esu').AsSingle:=Coord.EsteUTM;
