@@ -90,6 +90,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure SBAgregarClick(Sender: TObject);
     procedure FrmAgrCoord1SBVolverClick(Sender: TObject);
+    procedure FrmAgrCoord1BGuardarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -196,6 +197,12 @@ begin
   FrmAgrCoord1.QrLista.Open;
   FrmAgrCoord1.LTotPtos.Text:='Total puntos: '+
     FrmAgrCoord1.QrLista.RecordCount.ToString;
+end;
+
+procedure TFPrinc.FrmAgrCoord1BGuardarClick(Sender: TObject);
+begin
+  FrmAgrCoord1.BGuardarClick(Sender);
+  showmessage('esto es una prueba');
 end;
 
 procedure TFPrinc.FrmAgrCoord1SBVolverClick(Sender: TObject);

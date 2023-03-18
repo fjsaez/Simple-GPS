@@ -10,7 +10,7 @@ uses
   FMX.ScrollBox, FMX.Memo, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
-  FireDAC.Comp.DataSet, FireDAC.Comp.Client, FMX.Objects;
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, FMX.Objects, FMX.ListBox;
 
 type
   TCoord = record
@@ -28,7 +28,6 @@ type
     LTit1: TLabel;
     Layout6: TLayout;
     Layout7: TLayout;
-    LstVw: TListView;
     SBVolver: TSpeedButton;
     MemoDescr: TMemo;
     BGuardar: TButton;
@@ -37,6 +36,7 @@ type
     Rectangle1: TRectangle;
     Rectangle2: TRectangle;
     LTotPtos: TLabel;
+    LstVw: TListView;
     procedure SBVolverClick(Sender: TObject);
     procedure BGuardarClick(Sender: TObject);
     procedure MemoDescrChange(Sender: TObject);
@@ -69,7 +69,7 @@ procedure TFrmAgrCoord.BGuardarClick(Sender: TObject);
 begin
   Coord.Descripcion:=Trim(MemoDescr.Text);
   Coord.Fecha:=Now;
-  Query.SQL.Text:='insert into Coordenadas (EsteUTM,NorteUTM,Lat,Lon,LatGMS,'+
+  {Query.SQL.Text:='insert into Coordenadas (EsteUTM,NorteUTM,Lat,Lon,LatGMS,'+
     'LonGMS,Descripcion,Fecha) values (:esu,:nou,:lat,:lon,:lag,:log,:dsc,:fch)';
   Query.ParamByName('esu').AsSingle:=Coord.EsteUTM;
   Query.ParamByName('nou').AsSingle:=Coord.NorteUTM;
@@ -80,7 +80,7 @@ begin
   Query.ParamByName('dsc').AsString:=Coord.Descripcion;
   Query.ParamByName('fch').AsDate:=Coord.Fecha;
   Query.ExecSQL;
-  QrLista.Refresh;
+  QrLista.Refresh;}
   ValInicio;
   MemoDescr.Text:='';
   ShowMessage('Coordenada agregada');
