@@ -1,67 +1,81 @@
 ﻿[Layout6]
-Coordinates=80,302,60,36
+Coordinates=80,302,53,33
 
 [Layout3]
-Coordinates=10,302,60,36
+Coordinates=10,302,53,33
 
 [Layout1]
-Coordinates=450,256,60,36
+Coordinates=450,256,53,33
 
 [BGuardar]
-Coordinates=254,10,70,58
+Coordinates=254,10,61,51
 
 [LTit2]
-Coordinates=10,188,43,58
+Coordinates=10,188,40,51
 
 [Layout5]
-Coordinates=380,256,60,36
+Coordinates=380,256,53,33
 
 [Layout2]
-Coordinates=310,256,60,36
+Coordinates=310,256,53,33
 
 [LCoordUTM]
-Coordinates=262,188,84,58
+Coordinates=262,188,73,51
 
 [LCoordSex]
-Coordinates=165,10,79,58
+Coordinates=165,10,69,51
 
 [Query]
-Coordinates=334,10,49,58
+Coordinates=334,10,44,51
 
 [Layout8]
-Coordinates=240,256,60,36
+Coordinates=240,256,53,33
 
 [SBVolver]
-Coordinates=356,188,68,58
+Coordinates=356,188,60,51
 
 [MemoDescr]
-Coordinates=169,188,83,58
+Coordinates=800,40,72,51
 
 [LCoordDec]
-Coordinates=10,10,79,58
+Coordinates=10,10,69,51
 
 [Layout7]
-Coordinates=170,256,60,36
+Coordinates=170,256,53,33
 
 [QrLista]
-Coordinates=592,50,56,36
+Coordinates=560,40,50,33
+Visible=False
 
 [Layout4]
-Coordinates=100,256,60,36
+Coordinates=100,256,53,33
 
 [LTit3]
-Coordinates=116,188,43,58
+Coordinates=116,188,40,51
 
 [LTit1]
-Coordinates=63,188,43,58
+Coordinates=63,188,40,51
 
 [Rectangle2]
-Coordinates=10,256,80,36
+Coordinates=10,256,69,33
 
 [Rectangle1]
-Coordinates=434,188,80,36
+Coordinates=434,188,69,33
 
 []
-Coordinates=670,20,107,168
+Coordinates=550,30,92,249
 Visible=True
+
+[LTotPtos]
+Coordinates=90,10,58,51
+
+[LstVw]
+Coordinates=800,120,89,159
+Visible=True
+
+[BindingsList1]
+Coordinates=108,87,82,33
+
+[BindSourceDB1]
+Coordinates=560,40,92,249
 

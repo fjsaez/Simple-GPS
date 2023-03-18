@@ -113,7 +113,6 @@ uses
   System.Permissions, FMX.DialogService;
 
 {$R *.fmx}
-{$R *.LgXhdpiPh.fmx ANDROID}
 
 function Orientacion(Grados: double): string;
 begin
@@ -194,15 +193,14 @@ begin
   FrmAgrCoord1.ValInicio;
   FrmAgrCoord1.Visible:=false;
   LayPrinc.Visible:=true;
-  FrmAgrCoord1.QrLista.Open;
-  FrmAgrCoord1.LTotPtos.Text:='Total puntos: '+
-    FrmAgrCoord1.QrLista.RecordCount.ToString;
+  //FrmAgrCoord1.QrLista.Open;
+  //FrmAgrCoord1.LTotPtos.Text:='Total puntos: '+
+    //FrmAgrCoord1.QrLista.RecordCount.ToString;
 end;
 
 procedure TFPrinc.FrmAgrCoord1BGuardarClick(Sender: TObject);
 begin
   FrmAgrCoord1.BGuardarClick(Sender);
-  showmessage('esto es una prueba');
 end;
 
 procedure TFPrinc.FrmAgrCoord1SBVolverClick(Sender: TObject);
@@ -269,6 +267,11 @@ begin
                               Format('%2.6f',[FrmAgrCoord1.Coord.Lat]);
   FrmAgrCoord1.LCoordUTM.Text:=FormatFloat('#0.00',FrmAgrCoord1.Coord.EsteUTM)+
                          ', '+FormatFloat('#0.00',FrmAgrCoord1.Coord.NorteUTM);
+  FrmAgrCoord1.Coord.LatLon:=FrmAgrCoord1.LCoordDec.Text;
+  FrmAgrCoord1.BGuardar.Enabled:=false;
+  FrmAgrCoord1.Query.Open;
+  FrmAgrCoord1.LTotPtos.Text:='Total puntos: '+
+    FrmAgrCoord1.QrLista.RecordCount.ToString;
   LayPrinc.Visible:=false;
   FrmAgrCoord1.Visible:=true;
 end;

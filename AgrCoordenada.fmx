@@ -189,8 +189,8 @@ object FrmAgrCoord: TFrmAgrCoord
         Size.Height = 311.000000000000000000
         Size.PlatformDefault = False
         object LstVw: TListView
-          ItemAppearanceClassName = 'TListItemAppearance'
-          ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+          ItemAppearanceClassName = 'TListItemRightDetailAppearance'
+          ItemEditAppearanceClassName = 'TListItemRightDetailDeleteAppearance'
           HeaderAppearanceClassName = 'TListHeaderObjects'
           FooterAppearanceClassName = 'TListHeaderObjects'
           Align = Client
@@ -236,14 +236,40 @@ object FrmAgrCoord: TFrmAgrCoord
     SQL.Strings = (
       '')
     Left = 392
-    Top = 272
+    Top = 336
   end
   object QrLista: TFDQuery
-    Active = True
     Connection = DMod.FDConn
     SQL.Strings = (
       'select * from Coordenadas order by IDCoord desc')
-    Left = 344
-    Top = 272
+    Left = 336
+    Top = 336
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 5
+    object LinkFillControlToField1: TLinkFillControlToField
+      Category = 'Quick Bindings'
+      Control = LstVw
+      Track = True
+      FillDataSource = BindSourceDB1
+      FillDisplayFieldName = 'LatLon'
+      AutoFill = True
+      FillExpressions = <
+        item
+          SourceMemberName = 'Descripcion'
+          ControlMemberName = 'Detail'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = QrLista
+    ScopeMappings = <>
+    Left = 240
+    Top = 288
   end
 end
