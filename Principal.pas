@@ -193,9 +193,9 @@ begin
   FrmAgrCoord1.ValInicio;
   FrmAgrCoord1.Visible:=false;
   LayPrinc.Visible:=true;
-  //FrmAgrCoord1.QrLista.Open;
-  //FrmAgrCoord1.LTotPtos.Text:='Total puntos: '+
-    //FrmAgrCoord1.QrLista.RecordCount.ToString;
+  FrmAgrCoord1.QrLista.Open;
+  FrmAgrCoord1.LTotPtos.Text:='Total puntos: '+
+  FrmAgrCoord1.QrLista.RecordCount.ToString;
 end;
 
 procedure TFPrinc.FrmAgrCoord1BGuardarClick(Sender: TObject);
@@ -280,7 +280,6 @@ procedure TFPrinc.SwitchGPSSwitch(Sender: TObject);
 const
   PermissionAccessFineLocation='android.permission.ACCESS_FINE_LOCATION';
 begin
-  //se activa el sensor. Ojo: cambio hecho para Delphi 11.2
   PermissionsService.RequestPermissions([PermissionAccessFineLocation],
     procedure(const APermissions: TClassicStringDynArray;
               const AGrantResults: TClassicPermissionStatusDynArray)

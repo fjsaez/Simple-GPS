@@ -248,8 +248,8 @@ object FrmAgrCoord: TFrmAgrCoord
   object BindingsList1: TBindingsList
     Methods = <>
     OutputConverters = <>
-    Left = 20
-    Top = 5
+    Left = 164
+    Top = 341
     object LinkFillControlToField1: TLinkFillControlToField
       Category = 'Quick Bindings'
       Control = LstVw
@@ -269,7 +269,7 @@ object FrmAgrCoord: TFrmAgrCoord
   object BindSourceDB1: TBindSourceDB
     DataSet = QrLista
     ScopeMappings = <>
-    Left = 240
-    Top = 288
+    Left = 248
+    Top = 344
   end
 end

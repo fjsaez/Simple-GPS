@@ -284,6 +284,7 @@
         <Android_LauncherIcon96>Imagen\GPS_96px.png</Android_LauncherIcon96>
         <Android_LauncherIcon144>Imagen\GPS_144px.png</Android_LauncherIcon144>
         <IncludeAndroid_NotificationAccentColor>False</IncludeAndroid_NotificationAccentColor>
+        <AUP_ACCESS_BACKGROUND_LOCATION>true</AUP_ACCESS_BACKGROUND_LOCATION>
         <IncludeAndroid_Splash>False</IncludeAndroid_Splash>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
