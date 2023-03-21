@@ -79,6 +79,7 @@ type
     Rectangle5: TRectangle;
     SBAgregar: TSpeedButton;
     FrmAgrCoord1: TFrmAgrCoord;
+    PnlAgrCoord: TPanel;
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
     procedure SwitchGPSSwitch(Sender: TObject);
@@ -269,11 +270,11 @@ begin
                          ', '+FormatFloat('#0.00',FrmAgrCoord1.Coord.NorteUTM);
   FrmAgrCoord1.Coord.LatLon:=FrmAgrCoord1.LCoordDec.Text;
   FrmAgrCoord1.BGuardar.Enabled:=false;
-  FrmAgrCoord1.Query.Open;
+  FrmAgrCoord1.QrLista.Open;
   FrmAgrCoord1.LTotPtos.Text:='Total puntos: '+
     FrmAgrCoord1.QrLista.RecordCount.ToString;
   LayPrinc.Visible:=false;
-  FrmAgrCoord1.Visible:=true;
+  PnlAgrCoord.Visible:=true;
 end;
 
 procedure TFPrinc.SwitchGPSSwitch(Sender: TObject);
