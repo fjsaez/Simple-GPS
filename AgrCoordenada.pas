@@ -76,13 +76,15 @@ begin
   Coord.Descripcion:=Trim(MemoDescr.Text);
   Coord.Fecha:=Now;
   Query.SQL.Text:='insert into Coordenadas (EsteUTM,NorteUTM,Lat,Lon,LatGMS,'+
-    'LonGMS,Descripcion,Fecha) values (:esu,:nou,:lat,:lon,:lag,:log,:dsc,:fch)';
+    'LonGMS,LatLon,Descripcion,Fecha) values (:esu,:nou,:lat,:lon,:lag,:log,'+
+    ':lln,:dsc,:fch)';
   Query.ParamByName('esu').AsSingle:=Coord.EsteUTM;
   Query.ParamByName('nou').AsSingle:=Coord.NorteUTM;
   Query.ParamByName('lat').AsSingle:=Coord.Lat;
   Query.ParamByName('lon').AsSingle:=Coord.Lon;
   Query.ParamByName('lag').AsString:=Coord.LatGMS;
   Query.ParamByName('log').AsString:=Coord.LonGMS;
+  Query.ParamByName('lln').AsString:=Coord.LatLon;
   Query.ParamByName('dsc').AsString:=Coord.Descripcion;
   Query.ParamByName('fch').AsDate:=Coord.Fecha;
   Query.ExecSQL;

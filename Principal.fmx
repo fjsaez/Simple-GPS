@@ -10,78 +10,6 @@ object FPrinc: TFPrinc
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   DesignerMasterStyle = 3
-  object PnlAgrCoord: TPanel
-    Align = Client
-    Size.Width = 500.000000000000000000
-    Size.Height = 623.000000000000000000
-    Size.PlatformDefault = False
-    Visible = False
-    TabOrder = 7
-    inline FrmAgrCoord1: TFrmAgrCoord
-      Align = Client
-      Size.Width = 500.000000000000000000
-      Size.Height = 623.000000000000000000
-      Size.PlatformDefault = False
-      inherited Layout1: TLayout
-        Size.Height = 623.000000000000000000
-        inherited Layout2: TLayout
-          inherited LCoordUTM: TLabel
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-          end
-          inherited LTit3: TLabel
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-          end
-          inherited LCoordDec: TLabel
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-          end
-          inherited LTit2: TLabel
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-          end
-          inherited LCoordSex: TLabel
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-          end
-          inherited LTit1: TLabel
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-          end
-        end
-        inherited Layout3: TLayout
-          inherited Layout4: TLayout
-            inherited Rectangle1: TRectangle
-              inherited MemoDescr: TMemo
-                Viewport.Width = 240.000000000000000000
-                Viewport.Height = 79.000000000000000000
-              end
-            end
-          end
-          inherited Layout5: TLayout
-            inherited BGuardar: TButton
-              OnClick = FrmAgrCoord1BGuardarClick
-            end
-          end
-        end
-        inherited Layout7: TLayout
-          Size.Height = 324.000000000000000000
-          inherited Rectangle2: TRectangle
-            Size.Height = 324.000000000000000000
-            inherited LstVw: TListView
-              Size.Height = 314.000000000000000000
-            end
-          end
-        end
-        inherited Layout8: TLayout
-          inherited SBVolver: TSpeedButton
-            Position.Y = 1.000000000000000000
-            Size.Width = 48.000000000000000000
-            Size.Height = 48.000000000000000000
-            OnClick = FrmAgrCoord1SBVolverClick
-          end
-          inherited LTotPtos: TLabel
-            Size.Width = 442.000000000000000000
-          end
-        end
-      end
-    end
-  end
   object PnlAcerca: TPanel
     Align = Client
     Size.Width = 500.000000000000000000
@@ -38692,6 +38620,71 @@ object FPrinc: TFPrinc
       end>
     Left = 240
     Top = 8
+  end
+  inline FrmAgrCoord: TFrmAgrCoord
+    Align = Client
+    Size.Width = 500.000000000000000000
+    Size.Height = 623.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    inherited Layout1: TLayout
+      Size.Height = 623.000000000000000000
+      inherited Layout2: TLayout
+        inherited LCoordUTM: TLabel
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+        end
+        inherited LTit3: TLabel
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+        end
+        inherited LCoordDec: TLabel
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+        end
+        inherited LTit2: TLabel
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+        end
+        inherited LCoordSex: TLabel
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+        end
+        inherited LTit1: TLabel
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+        end
+      end
+      inherited Layout3: TLayout
+        inherited Layout4: TLayout
+          inherited Rectangle1: TRectangle
+            inherited MemoDescr: TMemo
+              Viewport.Width = 240.000000000000000000
+              Viewport.Height = 79.000000000000000000
+            end
+          end
+        end
+        inherited Layout5: TLayout
+          inherited BGuardar: TButton
+            OnClick = FrmAgrCoord1BGuardarClick
+          end
+        end
+      end
+      inherited Layout7: TLayout
+        Size.Height = 324.000000000000000000
+        inherited Rectangle2: TRectangle
+          Size.Height = 324.000000000000000000
+          inherited LstVw: TListView
+            Size.Height = 314.000000000000000000
+          end
+        end
+      end
+      inherited Layout8: TLayout
+        inherited SBVolver: TSpeedButton
+          Position.Y = 1.000000000000000000
+          Size.Width = 48.000000000000000000
+          Size.Height = 48.000000000000000000
+          OnClick = FrmAgrCoord1SBVolverClick
+        end
+        inherited LTotPtos: TLabel
+          Size.Width = 442.000000000000000000
+        end
+      end
+    end
   end
   object LctSensor: TLocationSensor
     ActivityType = Other

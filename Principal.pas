@@ -78,8 +78,7 @@ type
     LLonGMS: TLabel;
     Rectangle5: TRectangle;
     SBAgregar: TSpeedButton;
-    FrmAgrCoord1: TFrmAgrCoord;
-    PnlAgrCoord: TPanel;
+    FrmAgrCoord: TFrmAgrCoord;
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
     procedure SwitchGPSSwitch(Sender: TObject);
@@ -111,9 +110,10 @@ var
 implementation
 
 uses
-  System.Permissions, FMX.DialogService;
+  System.Permissions, FMX.DialogService, DataMod;
 
 {$R *.fmx}
+{$R *.LgXhdpiPh.fmx ANDROID}
 
 function Orientacion(Grados: double): string;
 begin
@@ -191,23 +191,23 @@ begin
   LActivar.TextSettings.FontColor:=Blanco;
   LNombre.Font.Family:='1';
   SBAgregar.Visible:=false;
-  FrmAgrCoord1.ValInicio;
-  FrmAgrCoord1.Visible:=false;
+  FrmAgrCoord.ValInicio;
+  FrmAgrCoord.Visible:=false;
   LayPrinc.Visible:=true;
-  FrmAgrCoord1.QrLista.Open;
-  FrmAgrCoord1.LTotPtos.Text:='Total puntos: '+
-  FrmAgrCoord1.QrLista.RecordCount.ToString;
+  FrmAgrCoord.QrLista.Open;
+  FrmAgrCoord.LTotPtos.Text:='Total puntos: '+
+  FrmAgrCoord.QrLista.RecordCount.ToString;
 end;
 
 procedure TFPrinc.FrmAgrCoord1BGuardarClick(Sender: TObject);
 begin
-  FrmAgrCoord1.BGuardarClick(Sender);
+  FrmAgrCoord.BGuardarClick(Sender);
 end;
 
 procedure TFPrinc.FrmAgrCoord1SBVolverClick(Sender: TObject);
 begin
-  FrmAgrCoord1.SBVolverClick(Sender);
-  FrmAgrCoord1.Visible:=false;
+  FrmAgrCoord.SBVolverClick(Sender);
+  FrmAgrCoord.Visible:=false;
   LayPrinc.Visible:=true;
 end;
 
@@ -240,17 +240,18 @@ begin
   LLatGMS.Text:=DecAGrados(LatLon.Lat,true);
   LLonGMS.Text:=DecAGrados(LatLon.Lon,false);
   //carga el registro:
-  FrmAgrCoord1.Coord.EsteUTM:=UTM.X;
-  FrmAgrCoord1.Coord.NorteUTM:=UTM.Y;
-  FrmAgrCoord1.Coord.Lat:=NewLocation.Latitude;
-  FrmAgrCoord1.Coord.Lon:=NewLocation.Longitude;
-  FrmAgrCoord1.Coord.LatGMS:=LLatGMS.Text;
-  FrmAgrCoord1.Coord.LonGMS:=LLonGMS.Text;
-  FrmAgrCoord1.Coord.Fecha:=Now;
+  FrmAgrCoord.Coord.EsteUTM:=UTM.X;
+  FrmAgrCoord.Coord.NorteUTM:=UTM.Y;
+  FrmAgrCoord.Coord.Lat:=NewLocation.Latitude;
+  FrmAgrCoord.Coord.Lon:=NewLocation.Longitude;
+  FrmAgrCoord.Coord.LatGMS:=LLatGMS.Text;
+  FrmAgrCoord.Coord.LonGMS:=LLonGMS.Text;
+  FrmAgrCoord.Coord.Fecha:=Now;
 end;
 
 procedure TFPrinc.SpeedButton1Click(Sender: TObject);
 begin
+  DMod.FDConn.Connected:=false;
   Application.Terminate;
 end;
 
@@ -262,19 +263,19 @@ end;
 
 procedure TFPrinc.SBAgregarClick(Sender: TObject);
 begin
-  FrmAgrCoord1.LCoordSex.Text:=FrmAgrCoord1.Coord.LonGMS+', '+
-                              FrmAgrCoord1.Coord.LatGMS;
-  FrmAgrCoord1.LCoordDec.Text:=Format('%2.6f',[FrmAgrCoord1.Coord.Lon])+', '+
-                              Format('%2.6f',[FrmAgrCoord1.Coord.Lat]);
-  FrmAgrCoord1.LCoordUTM.Text:=FormatFloat('#0.00',FrmAgrCoord1.Coord.EsteUTM)+
-                         ', '+FormatFloat('#0.00',FrmAgrCoord1.Coord.NorteUTM);
-  FrmAgrCoord1.Coord.LatLon:=FrmAgrCoord1.LCoordDec.Text;
-  FrmAgrCoord1.BGuardar.Enabled:=false;
-  FrmAgrCoord1.QrLista.Open;
-  FrmAgrCoord1.LTotPtos.Text:='Total puntos: '+
-    FrmAgrCoord1.QrLista.RecordCount.ToString;
+  FrmAgrCoord.LCoordSex.Text:=FrmAgrCoord.Coord.LonGMS+', '+
+                              FrmAgrCoord.Coord.LatGMS;
+  FrmAgrCoord.LCoordDec.Text:=Format('%2.6f',[FrmAgrCoord.Coord.Lon])+', '+
+                              Format('%2.6f',[FrmAgrCoord.Coord.Lat]);
+  FrmAgrCoord.LCoordUTM.Text:=FormatFloat('#0.00',FrmAgrCoord.Coord.EsteUTM)+
+                         ', '+FormatFloat('#0.00',FrmAgrCoord.Coord.NorteUTM);
+  FrmAgrCoord.Coord.LatLon:=FrmAgrCoord.LCoordDec.Text;
+  FrmAgrCoord.BGuardar.Enabled:=false;
+  FrmAgrCoord.QrLista.Open;
+  FrmAgrCoord.LTotPtos.Text:='Total puntos: '+
+    FrmAgrCoord.QrLista.RecordCount.ToString;
   LayPrinc.Visible:=false;
-  PnlAgrCoord.Visible:=true;
+  FrmAgrCoord.Visible:=true;
 end;
 
 procedure TFPrinc.SwitchGPSSwitch(Sender: TObject);
@@ -290,7 +291,7 @@ begin
       else
       begin
         SwitchGPS.IsChecked:=false;
-        FrmAgrCoord1.ValInicio;
+        FrmAgrCoord.ValInicio;
         TDialogService.ShowMessage('Permiso de Localización no está permitido');
       end;
     end);
