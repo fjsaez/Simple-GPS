@@ -12,7 +12,7 @@ uses
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, FMX.Objects, FMX.ListBox,
   System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
-  Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope;
+  Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, Vcl.ImgList;
 
 type
   TCoord = record
@@ -39,9 +39,6 @@ type
     Rectangle2: TRectangle;
     LTotPtos: TLabel;
     LstVw: TListView;
-    BindingsList1: TBindingsList;
-    BindSourceDB1: TBindSourceDB;
-    LinkFillControlToField1: TLinkFillControlToField;
     procedure SBVolverClick(Sender: TObject);
     procedure BGuardarClick(Sender: TObject);
     procedure MemoDescrChange(Sender: TObject);
@@ -89,6 +86,7 @@ begin
   Query.ParamByName('fch').AsDate:=Coord.Fecha;
   Query.ExecSQL;
   QrLista.Refresh;
+  LstVw.  Add.Text:=
   ValInicio;
   MemoDescr.Text:='';
   ShowMessage('Coordenada agregada');

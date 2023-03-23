@@ -189,8 +189,8 @@ object FrmAgrCoord: TFrmAgrCoord
         Size.Height = 311.000000000000000000
         Size.PlatformDefault = False
         object LstVw: TListView
-          ItemAppearanceClassName = 'TListItemRightDetailAppearance'
-          ItemEditAppearanceClassName = 'TListItemRightDetailDeleteAppearance'
+          ItemAppearanceClassName = 'TDynamicAppearance'
+          ItemEditAppearanceClassName = 'TDynamicAppearance'
           HeaderAppearanceClassName = 'TListHeaderObjects'
           FooterAppearanceClassName = 'TListHeaderObjects'
           Align = Client
@@ -202,6 +202,25 @@ object FrmAgrCoord: TFrmAgrCoord
           Size.Height = 301.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
+          ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+            item
+              AppearanceObjectName = 'LatLon'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Size = 16.000000000000000000
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.TextAlign = Leading
+              Appearance.Width = 500.000000000000000000
+              Appearance.Height = 49.000000000000000000
+            end>
+          ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+            item
+              AppearanceObjectName = 'Text1'
+              AppearanceClassName = 'TTextObjectAppearance'
+            end>
+          ItemAppearanceObjects.HeaderObjects.Text.Width = 460.000000000000000000
+          ItemAppearanceObjects.HeaderObjects.Text.Height = 24.000000000000000000
+          ItemAppearanceObjects.FooterObjects.Text.Width = 453.000000000000000000
+          ItemAppearanceObjects.FooterObjects.Text.Height = -24.000000000000000000
         end
       end
     end
@@ -244,32 +263,5 @@ object FrmAgrCoord: TFrmAgrCoord
       'select * from Coordenadas order by IDCoord desc')
     Left = 336
     Top = 336
-  end
-  object BindingsList1: TBindingsList
-    Methods = <>
-    OutputConverters = <>
-    Left = 164
-    Top = 341
-    object LinkFillControlToField1: TLinkFillControlToField
-      Category = 'Quick Bindings'
-      Control = LstVw
-      Track = True
-      FillDataSource = BindSourceDB1
-      FillDisplayFieldName = 'LatLon'
-      AutoFill = True
-      FillExpressions = <
-        item
-          SourceMemberName = 'Descripcion'
-          ControlMemberName = 'Detail'
-        end>
-      FillHeaderExpressions = <>
-      FillBreakGroups = <>
-    end
-  end
-  object BindSourceDB1: TBindSourceDB
-    DataSet = QrLista
-    ScopeMappings = <>
-    Left = 248
-    Top = 344
   end
 end
