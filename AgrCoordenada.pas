@@ -6,13 +6,13 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Layouts, FMX.Controls.Presentation, FMX.ListView.Types, FMX.ListView,
-  FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.Memo.Types,
+  FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.Memo.Types, Data.DB,
   FMX.ScrollBox, FMX.Memo, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
-  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
-  FireDAC.Comp.DataSet, FireDAC.Comp.Client, FMX.Objects, FMX.ListBox,
-  System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
-  Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, Vcl.ImgList;
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client, FMX.Objects, FMX.ListBox, System.Rtti, Fmx.Bind.Editors,
+  Data.Bind.EngExt,System.Bindings.Outputs, Fmx.Bind.DBEngExt,
+  Data.Bind.Components, Data.Bind.DBScope;
 
 type
   TCoord = record
@@ -48,6 +48,7 @@ type
     { Public declarations }
     Coord: TCoord;
     procedure ValInicio;
+    procedure CargarLista;
   end;
 
 implementation
@@ -66,10 +67,26 @@ begin
   Coord.LatLon:='';
   Coord.Descripcion:='';
   Coord.Fecha:=Now;
+  LTotPtos.Text:='Total puntos: '+QrLista.RecordCount.ToString;
+end;
+
+procedure TFrmAgrCoord.CargarLista;
+begin
+  LstVw.Items.Clear;
+  QrLista.Open;
+  LTotPtos.Text:='Total puntos: '+QrLista.RecordCount.ToString;
+  QrLista.First;
+  while not QrLista.Eof do
+  begin
+    LstVw.Items.Add.Text:=QrLista.FieldByName('LatLon').AsString;
+    LstVw.Items.Add.Detail:=QrLista.FieldByName('Descripcion').AsString;
+    QrLista.Next;
+  end;
 end;
 
 procedure TFrmAgrCoord.BGuardarClick(Sender: TObject);
 begin
+  LstVw.BeginUpdate;
   Coord.Descripcion:=Trim(MemoDescr.Text);
   Coord.Fecha:=Now;
   Query.SQL.Text:='insert into Coordenadas (EsteUTM,NorteUTM,Lat,Lon,LatGMS,'+
@@ -85,10 +102,11 @@ begin
   Query.ParamByName('dsc').AsString:=Coord.Descripcion;
   Query.ParamByName('fch').AsDate:=Coord.Fecha;
   Query.ExecSQL;
-  QrLista.Refresh;
-  LstVw.  Add.Text:=
+  QrLista.Close;
+  CargarLista;
   ValInicio;
   MemoDescr.Text:='';
+  LstVw.EndUpdate;
   ShowMessage('Coordenada agregada');
 end;
 

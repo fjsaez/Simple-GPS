@@ -1,5 +1,5 @@
 ﻿[QrLista]
-Coordinates=471,363,50,33
+Coordinates=270,430,50,33
 
 [Layout1]
 Coordinates=20,10,53,33
@@ -37,10 +37,6 @@ Coordinates=20,210,53,33
 [LTotPtos]
 Coordinates=230,290,58,51
 
-[LstVw]
-Coordinates=520,10,89,159
-Visible=True
-
 [Layout4]
 Coordinates=20,130,53,33
 
@@ -69,5 +65,10 @@ Coordinates=230,10,40,51
 Coordinates=20,50,53,33
 
 []
-Coordinates=310,10,92,87
+Coordinates=308,1,82,33
+Visible=True
+
+[LstVw]
+Coordinates=20,440,89,159
+Visible=True
 
