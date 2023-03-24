@@ -2,7 +2,7 @@ inherited FPrinc_LgXhdpiPh: TFPrinc_LgXhdpiPh
   ClientHeight = 695
   ClientWidth = 450
   DesignerMasterStyle = 3
-  inherited PnlAcerca: TPanel
+  inherited PnlAcerca: TPanel [0]
     inherited Rectangle2: TRectangle
       inherited Layout5: TLayout
         inherited Image1: TImage
@@ -137,7 +137,7 @@ inherited FPrinc_LgXhdpiPh: TFPrinc_LgXhdpiPh
       end
     end
   end
-  inherited LayPrinc: TLayout
+  inherited LayPrinc: TLayout [1]
     Size.Width = 450.000000000000000000
     Size.Height = 695.000000000000000000
     inherited LayBot: TLayout
@@ -348,7 +348,7 @@ inherited FPrinc_LgXhdpiPh: TFPrinc_LgXhdpiPh
       end
     end
   end
-  inherited FrmAgrCoord: TFrmAgrCoord
+  inherited FrmAgrCoord: TFrmAgrCoord [3]
     inherited Layout1: TLayout
       inherited Layout2: TLayout
         inherited LCoordUTM: TLabel
@@ -380,9 +380,20 @@ inherited FPrinc_LgXhdpiPh: TFPrinc_LgXhdpiPh
           end
         end
       end
-    end
-    inherited QrLista: TFDQuery
-      Active = True
+      inherited Layout7: TLayout
+        inherited Rectangle2: TRectangle
+          inherited SGrid: TStringGrid
+            Viewport.Width = 494.000000000000000000
+            Viewport.Height = 318.000000000000000000
+            inherited ColDescr: TStringColumn [0]
+              Size.Width = 235.000000000000000000
+            end
+            inherited ColCoord: TStringColumn [1]
+              Size.Width = 250.000000000000000000
+            end
+          end
+        end
+      end
     end
   end
 end

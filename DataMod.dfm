@@ -11,7 +11,6 @@ object DMod: TDMod
       'DriverID=SQLite')
     FormatOptions.AssignedValues = [fvFmtDisplayDate]
     FormatOptions.FmtDisplayDate = 'dd/MM/yyyy'
-    Connected = True
     LoginPrompt = False
     Left = 96
     Top = 64

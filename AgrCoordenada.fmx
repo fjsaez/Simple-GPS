@@ -145,8 +145,8 @@ object FrmAgrCoord: TFrmAgrCoord
             Size.Height = 83.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
-            Viewport.Width = 244.000000000000000000
-            Viewport.Height = 83.000000000000000000
+            Viewport.Width = 240.000000000000000000
+            Viewport.Height = 79.000000000000000000
           end
         end
       end
@@ -188,12 +188,10 @@ object FrmAgrCoord: TFrmAgrCoord
         Size.Width = 500.000000000000000000
         Size.Height = 311.000000000000000000
         Size.PlatformDefault = False
-        object LstVw: TListView
-          ItemAppearanceClassName = 'TDynamicAppearance'
-          ItemEditAppearanceClassName = 'TDynamicAppearance'
-          HeaderAppearanceClassName = 'TListHeaderObjects'
-          FooterAppearanceClassName = 'TListHeaderObjects'
+        object SGrid: TStringGrid
           Align = Client
+          CanFocus = True
+          ClipChildren = True
           Margins.Left = 3.000000000000000000
           Margins.Top = 3.000000000000000000
           Margins.Right = 3.000000000000000000
@@ -202,20 +200,20 @@ object FrmAgrCoord: TFrmAgrCoord
           Size.Height = 305.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          ItemAppearance.ItemHeight = 34
-          ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
-            item
-              AppearanceObjectName = 'Text1'
-              AppearanceClassName = 'TTextObjectAppearance'
-              Appearance.Font.Size = 16.000000000000000000
-              Appearance.Font.StyleExt = {00070000000000000004000000}
-              Appearance.TextAlign = Leading
-            end>
-          ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
-            item
-              AppearanceObjectName = 'Text1'
-              AppearanceClassName = 'TTextObjectAppearance'
-            end>
+          RowCount = 0
+          Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
+          Viewport.Width = 490.000000000000000000
+          Viewport.Height = 280.000000000000000000
+          object ColCoord: TStringColumn
+            Header = 'Coordenada'
+            ReadOnly = True
+            Size.Width = 200.000000000000000000
+          end
+          object ColDescr: TStringColumn
+            Header = 'Descripci'#243'n'
+            ReadOnly = True
+            Size.Width = 285.000000000000000000
+          end
         end
       end
     end

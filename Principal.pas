@@ -194,9 +194,10 @@ begin
   FrmAgrCoord.ValInicio;
   FrmAgrCoord.Visible:=false;
   LayPrinc.Visible:=true;
-  FrmAgrCoord.QrLista.Open;
+  //FrmAgrCoord.CargarLista;
+  {FrmAgrCoord.QrLista.Open;
   FrmAgrCoord.LTotPtos.Text:='Total puntos: '+
-  FrmAgrCoord.QrLista.RecordCount.ToString;
+  FrmAgrCoord.QrLista.RecordCount.ToString;}
 end;
 
 procedure TFPrinc.FrmAgrCoord1BGuardarClick(Sender: TObject);

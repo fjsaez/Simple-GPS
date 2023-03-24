@@ -12,7 +12,7 @@ uses
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, FMX.Objects, FMX.ListBox, System.Rtti, Fmx.Bind.Editors,
   Data.Bind.EngExt,System.Bindings.Outputs, Fmx.Bind.DBEngExt,
-  Data.Bind.Components, Data.Bind.DBScope;
+  Data.Bind.Components, Data.Bind.DBScope, FMX.Grid.Style, FMX.Grid;
 
 type
   TCoord = record
@@ -38,7 +38,9 @@ type
     Rectangle1: TRectangle;
     Rectangle2: TRectangle;
     LTotPtos: TLabel;
-    LstVw: TListView;
+    SGrid: TStringGrid;
+    ColCoord: TStringColumn;
+    ColDescr: TStringColumn;
     procedure SBVolverClick(Sender: TObject);
     procedure BGuardarClick(Sender: TObject);
     procedure MemoDescrChange(Sender: TObject);
@@ -67,11 +69,14 @@ begin
   Coord.LatLon:='';
   Coord.Descripcion:='';
   Coord.Fecha:=Now;
-  LTotPtos.Text:='Total puntos: '+QrLista.RecordCount.ToString;
+  //LTotPtos.Text:='Total puntos: '+QrLista.RecordCount.ToString;
 end;
 
 procedure TFrmAgrCoord.CargarLista;
+var
+  Ind: word;
 begin
+  {LstVw.BeginUpdate;
   LstVw.Items.Clear;
   QrLista.Open;
   LTotPtos.Text:='Total puntos: '+QrLista.RecordCount.ToString;
@@ -82,11 +87,26 @@ begin
     LstVw.Items.Add.Detail:=QrLista.FieldByName('Descripcion').AsString;
     QrLista.Next;
   end;
+  LstVw.EndUpdate;}
+  SGrid.BeginUpdate;
+  QrLista.Open;
+  LTotPtos.Text:='Total puntos: '+QrLista.RecordCount.ToString;
+  QrLista.First;
+  Ind:=0;
+  SGrid.RowCount:=1;
+  while not QrLista.Eof do
+  begin
+    SGrid.RowCount:=SGrid.RowCount+1;
+    SGrid.Cells[0,Ind]:=QrLista.FieldByName('LatLon').AsString;
+    SGrid.Cells[1,Ind]:=QrLista.FieldByName('Descripcion').AsString;
+    Inc(Ind);
+    QrLista.Next;
+  end;
+  SGrid.EndUpdate;
 end;
 
 procedure TFrmAgrCoord.BGuardarClick(Sender: TObject);
 begin
-  LstVw.BeginUpdate;
   Coord.Descripcion:=Trim(MemoDescr.Text);
   Coord.Fecha:=Now;
   Query.SQL.Text:='insert into Coordenadas (EsteUTM,NorteUTM,Lat,Lon,LatGMS,'+
@@ -106,8 +126,8 @@ begin
   CargarLista;
   ValInicio;
   MemoDescr.Text:='';
-  LstVw.EndUpdate;
   ShowMessage('Coordenada agregada');
+  SBVolver.OnClick(Self);
 end;
 
 procedure TFrmAgrCoord.MemoDescrChange(Sender: TObject);
