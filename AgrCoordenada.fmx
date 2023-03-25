@@ -145,8 +145,8 @@ object FrmAgrCoord: TFrmAgrCoord
             Size.Height = 83.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
-            Viewport.Width = 240.000000000000000000
-            Viewport.Height = 79.000000000000000000
+            Viewport.Width = 244.000000000000000000
+            Viewport.Height = 83.000000000000000000
           end
         end
       end
@@ -202,8 +202,8 @@ object FrmAgrCoord: TFrmAgrCoord
           TabOrder = 0
           RowCount = 0
           Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
-          Viewport.Width = 490.000000000000000000
-          Viewport.Height = 280.000000000000000000
+          Viewport.Width = 494.000000000000000000
+          Viewport.Height = 305.000000000000000000
           object ColCoord: TStringColumn
             Header = 'Coordenada'
             ReadOnly = True

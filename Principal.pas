@@ -194,10 +194,6 @@ begin
   FrmAgrCoord.ValInicio;
   FrmAgrCoord.Visible:=false;
   LayPrinc.Visible:=true;
-  //FrmAgrCoord.CargarLista;
-  {FrmAgrCoord.QrLista.Open;
-  FrmAgrCoord.LTotPtos.Text:='Total puntos: '+
-  FrmAgrCoord.QrLista.RecordCount.ToString;}
 end;
 
 procedure TFPrinc.FrmAgrCoord1BGuardarClick(Sender: TObject);
@@ -272,10 +268,7 @@ begin
                          ', '+FormatFloat('#0.00',FrmAgrCoord.Coord.NorteUTM);
   FrmAgrCoord.Coord.LatLon:=FrmAgrCoord.LCoordDec.Text;
   FrmAgrCoord.BGuardar.Enabled:=false;
-  //FrmAgrCoord.QrLista.Open;
   FrmAgrCoord.CargarLista;
-  {FrmAgrCoord.LTotPtos.Text:='Total puntos: '+
-    FrmAgrCoord.QrLista.RecordCount.ToString;}
   LayPrinc.Visible:=false;
   FrmAgrCoord.Visible:=true;
 end;

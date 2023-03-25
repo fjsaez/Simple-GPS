@@ -69,25 +69,12 @@ begin
   Coord.LatLon:='';
   Coord.Descripcion:='';
   Coord.Fecha:=Now;
-  //LTotPtos.Text:='Total puntos: '+QrLista.RecordCount.ToString;
 end;
 
 procedure TFrmAgrCoord.CargarLista;
 var
   Ind: word;
 begin
-  {LstVw.BeginUpdate;
-  LstVw.Items.Clear;
-  QrLista.Open;
-  LTotPtos.Text:='Total puntos: '+QrLista.RecordCount.ToString;
-  QrLista.First;
-  while not QrLista.Eof do
-  begin
-    LstVw.Items.Add.Text:=QrLista.FieldByName('LatLon').AsString;
-    LstVw.Items.Add.Detail:=QrLista.FieldByName('Descripcion').AsString;
-    QrLista.Next;
-  end;
-  LstVw.EndUpdate;}
   SGrid.BeginUpdate;
   QrLista.Open;
   LTotPtos.Text:='Total puntos: '+QrLista.RecordCount.ToString;
