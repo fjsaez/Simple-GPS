@@ -93,6 +93,7 @@ type
     procedure FrmAgrCoord1BGuardarClick(Sender: TObject);
   private
     { Private declarations }
+    procedure CargarRegCoordenadas;
   public
     { Public declarations }
   end;
@@ -106,6 +107,7 @@ const
 
 var
   FPrinc: TFPrinc;
+  Coords: TCoord;
 
 implementation
 
@@ -186,6 +188,11 @@ begin
   Recursos:=TResourceStream.Create(hInstance,'1',RT_RCDATA);
 end;
 
+procedure TFPrinc.CargarRegCoordenadas;
+begin
+ //
+end;
+
 procedure TFPrinc.FormCreate(Sender: TObject);
 begin
   LActivar.TextSettings.FontColor:=Blanco;
@@ -237,13 +244,21 @@ begin
   LLatGMS.Text:=DecAGrados(LatLon.Lat,true);
   LLonGMS.Text:=DecAGrados(LatLon.Lon,false);
   //carga el registro:
-  FrmAgrCoord.Coord.EsteUTM:=UTM.X;
+  //CargarRegCoordenadas;
+  {FrmAgrCoord.Coord.EsteUTM:=UTM.X;
   FrmAgrCoord.Coord.NorteUTM:=UTM.Y;
   FrmAgrCoord.Coord.Lat:=NewLocation.Latitude;
   FrmAgrCoord.Coord.Lon:=NewLocation.Longitude;
   FrmAgrCoord.Coord.LatGMS:=LLatGMS.Text;
   FrmAgrCoord.Coord.LonGMS:=LLonGMS.Text;
-  FrmAgrCoord.Coord.Fecha:=Now;
+  FrmAgrCoord.Coord.Fecha:=Now; }
+  Coords.EsteUTM:=UTM.X;
+  Coords.NorteUTM:=UTM.Y;
+  Coords.Lat:=NewLocation.Latitude;
+  Coords.Lon:=NewLocation.Longitude;
+  Coords.LatGMS:=LLatGMS.Text;
+  Coords.LonGMS:=LLonGMS.Text;
+  Coords.Fecha:=Now;
 end;
 
 procedure TFPrinc.SpeedButton1Click(Sender: TObject);
@@ -260,12 +275,12 @@ end;
 
 procedure TFPrinc.SBAgregarClick(Sender: TObject);
 begin
-  FrmAgrCoord.LCoordSex.Text:=FrmAgrCoord.Coord.LonGMS+', '+
-                              FrmAgrCoord.Coord.LatGMS;
-  FrmAgrCoord.LCoordDec.Text:=Format('%2.6f',[FrmAgrCoord.Coord.Lon])+', '+
-                              Format('%2.6f',[FrmAgrCoord.Coord.Lat]);
-  FrmAgrCoord.LCoordUTM.Text:=FormatFloat('#0.00',FrmAgrCoord.Coord.EsteUTM)+
-                         ', '+FormatFloat('#0.00',FrmAgrCoord.Coord.NorteUTM);
+  FrmAgrCoord.Coord:=Coords;
+  FrmAgrCoord.LCoordSex.Text:=Coords.LonGMS+', '+Coords.LatGMS;
+  FrmAgrCoord.LCoordDec.Text:=Format('%2.6f',[Coords.Lon])+', '+
+                              Format('%2.6f',[Coords.Lat]);
+  FrmAgrCoord.LCoordUTM.Text:=FormatFloat('#0.00',Coords.EsteUTM)+
+                         ', '+FormatFloat('#0.00',Coords.NorteUTM);
   FrmAgrCoord.Coord.LatLon:=FrmAgrCoord.LCoordDec.Text;
   FrmAgrCoord.BGuardar.Enabled:=false;
   FrmAgrCoord.CargarLista;
