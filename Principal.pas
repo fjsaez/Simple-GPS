@@ -244,14 +244,6 @@ begin
   LLatGMS.Text:=DecAGrados(LatLon.Lat,true);
   LLonGMS.Text:=DecAGrados(LatLon.Lon,false);
   //carga el registro:
-  //CargarRegCoordenadas;
-  {FrmAgrCoord.Coord.EsteUTM:=UTM.X;
-  FrmAgrCoord.Coord.NorteUTM:=UTM.Y;
-  FrmAgrCoord.Coord.Lat:=NewLocation.Latitude;
-  FrmAgrCoord.Coord.Lon:=NewLocation.Longitude;
-  FrmAgrCoord.Coord.LatGMS:=LLatGMS.Text;
-  FrmAgrCoord.Coord.LonGMS:=LLonGMS.Text;
-  FrmAgrCoord.Coord.Fecha:=Now; }
   Coords.EsteUTM:=UTM.X;
   Coords.NorteUTM:=UTM.Y;
   Coords.Lat:=NewLocation.Latitude;
