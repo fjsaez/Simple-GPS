@@ -7,12 +7,12 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Layouts, FMX.Controls.Presentation, FMX.ListView.Types, FMX.ListView,
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.Memo.Types, Data.DB,
-  FMX.ScrollBox, FMX.Memo, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FMX.ScrollBox, FMX.Memo, FireDAC.Stan.Intf, FireDAC.Stan.Option, FMX.Grid,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, FMX.Objects, FMX.ListBox, System.Rtti, Fmx.Bind.Editors,
   Data.Bind.EngExt,System.Bindings.Outputs, Fmx.Bind.DBEngExt,
-  Data.Bind.Components, Data.Bind.DBScope, FMX.Grid.Style, FMX.Grid;
+  Data.Bind.Components, Data.Bind.DBScope, FMX.Grid.Style;
 
 type
   TCoord = record
@@ -39,7 +39,6 @@ type
     Rectangle2: TRectangle;
     LTotPtos: TLabel;
     SGrid: TStringGrid;
-    ColCoord: TStringColumn;
     ColDescr: TStringColumn;
     procedure SBVolverClick(Sender: TObject);
     procedure BGuardarClick(Sender: TObject);
@@ -84,8 +83,8 @@ begin
   while not QrLista.Eof do
   begin
     SGrid.RowCount:=SGrid.RowCount+1;
-    SGrid.Cells[0,Ind]:=QrLista.FieldByName('LatLon').AsString;
-    SGrid.Cells[1,Ind]:=QrLista.FieldByName('Descripcion').AsString;
+    //SGrid.Cells[0,Ind]:=QrLista.FieldByName('LatLon').AsString;
+    SGrid.Cells[0,Ind]:=QrLista.FieldByName('Descripcion').AsString;
     Inc(Ind);
     QrLista.Next;
   end;

@@ -23,6 +23,7 @@ object FPrinc: TFPrinc
           TextSettings.Font.StyleExt = {00070000000000000004000000}
         end
         inherited LTit3: TLabel
+          TextSettings.Font.Size = 14.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
         end
         inherited LCoordDec: TLabel
@@ -61,11 +62,8 @@ object FPrinc: TFPrinc
             Size.Height = 318.000000000000000000
             Viewport.Width = 494.000000000000000000
             Viewport.Height = 318.000000000000000000
-            inherited ColCoord: TStringColumn
-              Size.Width = 250.000000000000000000
-            end
             inherited ColDescr: TStringColumn
-              Size.Width = 235.000000000000000000
+              Size.Width = 285.000000000000000000
             end
           end
         end
@@ -73,7 +71,9 @@ object FPrinc: TFPrinc
       inherited Layout8: TLayout
         inherited SBVolver: TSpeedButton
           IconTintColor = claYellow
+          Position.Y = 1.000000000000000000
           Size.Width = 48.000000000000000000
+          Size.Height = 48.000000000000000000
           OnClick = FrmAgrCoord1SBVolverClick
         end
         inherited LTotPtos: TLabel

@@ -115,7 +115,6 @@ uses
   System.Permissions, FMX.DialogService, DataMod;
 
 {$R *.fmx}
-{$R *.LgXhdpiPh.fmx ANDROID}
 
 function Orientacion(Grados: double): string;
 begin
@@ -276,6 +275,7 @@ begin
   FrmAgrCoord.Coord.LatLon:=FrmAgrCoord.LCoordDec.Text;
   FrmAgrCoord.BGuardar.Enabled:=false;
   FrmAgrCoord.CargarLista;
+  FrmAgrCoord.ColDescr.Width:=FrmAgrCoord.SGrid.Width;
   LayPrinc.Visible:=false;
   FrmAgrCoord.Visible:=true;
 end;
