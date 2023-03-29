@@ -249,6 +249,8 @@ begin
   Coords.Lon:=NewLocation.Longitude;
   Coords.LatGMS:=LLatGMS.Text;
   Coords.LonGMS:=LLonGMS.Text;
+  Coords.LatLon:=Format('%2.6f',[NewLocation.Longitude])+', '+
+                 Format('%2.6f',[NewLocation.Latitude]);
   Coords.Fecha:=Now;
 end;
 
@@ -268,16 +270,16 @@ procedure TFPrinc.SBAgregarClick(Sender: TObject);
 begin
   FrmAgrCoord.Coord:=Coords;
   FrmAgrCoord.LCoordSex.Text:=Coords.LonGMS+', '+Coords.LatGMS;
-  FrmAgrCoord.LCoordDec.Text:=Format('%2.6f',[Coords.Lon])+', '+
-                              Format('%2.6f',[Coords.Lat]);
-  FrmAgrCoord.LCoordUTM.Text:=FormatFloat('#0.00',Coords.EsteUTM)+
-                         ', '+FormatFloat('#0.00',Coords.NorteUTM);
-  FrmAgrCoord.Coord.LatLon:=FrmAgrCoord.LCoordDec.Text;
+  FrmAgrCoord.LCoordDec.Text:=Coords.LatLon;
+  FrmAgrCoord.LCoordUTM.Text:=FormatFloat('#0.00',Coords.EsteUTM)+', '+
+                              FormatFloat('#0.00',Coords.NorteUTM);
+  FrmAgrCoord.MemoDescr.ReadOnly:=false;
   FrmAgrCoord.BGuardar.Enabled:=false;
   FrmAgrCoord.CargarLista;
   FrmAgrCoord.ColDescr.Width:=FrmAgrCoord.SGrid.Width;
   LayPrinc.Visible:=false;
   FrmAgrCoord.Visible:=true;
+  FrmAgrCoord.MemoDescr.SetFocus;
 end;
 
 procedure TFPrinc.SwitchGPSSwitch(Sender: TObject);

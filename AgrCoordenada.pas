@@ -40,16 +40,24 @@ type
     LTotPtos: TLabel;
     SGrid: TStringGrid;
     ColDescr: TStringColumn;
+    ColID: TIntegerColumn;
+    ColGeoSex: TStringColumn;
+    ColGeoDec: TStringColumn;
+    ColUTM: TStringColumn;
     procedure SBVolverClick(Sender: TObject);
     procedure BGuardarClick(Sender: TObject);
     procedure MemoDescrChange(Sender: TObject);
+    procedure SGridCellClick(const Column: TColumn; const Row: Integer);
   private
     { Private declarations }
   public
     { Public declarations }
     Coord: TCoord;
+    IDCoord: integer;
     procedure ValInicio;
     procedure CargarLista;
+    procedure Guardar;
+    procedure Eliminar(ID: integer);
   end;
 
 implementation
@@ -68,6 +76,10 @@ begin
   Coord.LatLon:='';
   Coord.Descripcion:='';
   Coord.Fecha:=Now;
+  LCoordSex.Text:='';
+  LCoordDec.Text:='';
+  LCoordUTM.Text:='';
+  MemoDescr.Text:='';
 end;
 
 procedure TFrmAgrCoord.CargarLista;
@@ -76,22 +88,37 @@ var
 begin
   SGrid.BeginUpdate;
   QrLista.Open;
+  QrLista.Refresh;
   LTotPtos.Text:='Total puntos: '+QrLista.RecordCount.ToString;
   QrLista.First;
   Ind:=0;
-  SGrid.RowCount:=1;
+  SGrid.RowCount:=0;
   while not QrLista.Eof do
   begin
     SGrid.RowCount:=SGrid.RowCount+1;
-    //SGrid.Cells[0,Ind]:=QrLista.FieldByName('LatLon').AsString;
     SGrid.Cells[0,Ind]:=QrLista.FieldByName('Descripcion').AsString;
+    SGrid.Cells[1,Ind]:=QrLista.FieldByName('IDCoord').AsString;
+    SGrid.Cells[2,Ind]:=QrLista.FieldByName('LonGMS').AsString+', '+
+                        QrLista.FieldByName('LatGMS').AsString;
+    SGrid.Cells[3,Ind]:=QrLista.FieldByName('LatLon').AsString;
+    SGrid.Cells[4,Ind]:=QrLista.FieldByName('EsteUTM').AsString+', '+
+                        QrLista.FieldByName('NorteUTM').AsString;
     Inc(Ind);
     QrLista.Next;
   end;
   SGrid.EndUpdate;
 end;
 
-procedure TFrmAgrCoord.BGuardarClick(Sender: TObject);
+procedure TFrmAgrCoord.Eliminar(ID: integer);
+begin
+  Query.SQL.Text:='delete from Coordenadas where IDCoord=:idc';
+  Query.ParamByName('idc').AsInteger:=ID;
+  Query.ExecSQL;
+  ShowMessage('Coordenada eliminada');
+  CargarLista;
+end;
+
+procedure TFrmAgrCoord.Guardar;
 begin
   Coord.Descripcion:=Trim(MemoDescr.Text);
   Coord.Fecha:=Now;
@@ -109,11 +136,15 @@ begin
   Query.ParamByName('fch').AsDate:=Coord.Fecha;
   Query.ExecSQL;
   QrLista.Close;
-  CargarLista;
-  ValInicio;
-  MemoDescr.Text:='';
   ShowMessage('Coordenada agregada');
   SBVolver.OnClick(Self);
+end;
+
+procedure TFrmAgrCoord.BGuardarClick(Sender: TObject);
+begin
+  if BGuardar.Text='Guardar' then Guardar
+                             else Eliminar(IDCoord);
+  ValInicio;
 end;
 
 procedure TFrmAgrCoord.MemoDescrChange(Sender: TObject);
@@ -124,6 +155,18 @@ end;
 procedure TFrmAgrCoord.SBVolverClick(Sender: TObject);
 begin
   Visible:=false;
+end;
+
+procedure TFrmAgrCoord.SGridCellClick(const Column: TColumn;
+  const Row: Integer);
+begin
+  MemoDescr.ReadOnly:=true;
+  MemoDescr.Text:=SGrid.Cells[0,Row];
+  LCoordSex.Text:=SGrid.Cells[2,Row];
+  LCoordDec.Text:=SGrid.Cells[3,Row];
+  LCoordUTM.Text:=SGrid.Cells[4,Row];
+  IDCoord:=SGrid.Cells[1,Row].ToInteger;
+  BGuardar.Text:='Quitar';
 end;
 
 end.

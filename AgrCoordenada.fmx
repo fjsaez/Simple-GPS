@@ -203,12 +203,30 @@ object FrmAgrCoord: TFrmAgrCoord
           TabOrder = 0
           RowCount = 0
           Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
+          OnCellClick = SGridCellClick
           Viewport.Width = 490.000000000000000000
           Viewport.Height = 299.000000000000000000
           object ColDescr: TStringColumn
             Header = 'Descripci'#243'n'
             ReadOnly = True
-            Size.Width = 465.000000000000000000
+            Size.Width = 291.000000000000000000
+          end
+          object ColID: TIntegerColumn
+            Header = 'IDCoord'
+            Visible = False
+            Size.Width = 55.000000000000000000
+          end
+          object ColGeoSex: TStringColumn
+            Visible = False
+            Size.Width = 40.000000000000000000
+          end
+          object ColGeoDec: TStringColumn
+            Visible = False
+            Size.Width = 40.000000000000000000
+          end
+          object ColUTM: TStringColumn
+            Visible = False
+            Size.Width = 40.000000000000000000
           end
         end
       end
