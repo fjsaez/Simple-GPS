@@ -44,6 +44,7 @@ type
     ColGeoSex: TStringColumn;
     ColGeoDec: TStringColumn;
     ColUTM: TStringColumn;
+    Button1: TButton;
     procedure SBVolverClick(Sender: TObject);
     procedure BGuardarClick(Sender: TObject);
     procedure MemoDescrChange(Sender: TObject);
@@ -101,8 +102,8 @@ begin
     SGrid.Cells[2,Ind]:=QrLista.FieldByName('LonGMS').AsString+', '+
                         QrLista.FieldByName('LatGMS').AsString;
     SGrid.Cells[3,Ind]:=QrLista.FieldByName('LatLon').AsString;
-    SGrid.Cells[4,Ind]:=QrLista.FieldByName('EsteUTM').AsString+', '+
-                        QrLista.FieldByName('NorteUTM').AsString;
+    SGrid.Cells[4,Ind]:=FormatFloat('#0.00',QrLista.FieldByName('EsteUTM').AsFloat)+
+              ', '+FormatFloat('#0.00',QrLista.FieldByName('NorteUTM').AsFloat);
     Inc(Ind);
     QrLista.Next;
   end;

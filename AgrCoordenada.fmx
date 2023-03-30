@@ -166,6 +166,14 @@ object FrmAgrCoord: TFrmAgrCoord
           Text = 'Guardar'
           OnClick = BGuardarClick
         end
+        object Button1: TButton
+          Position.X = 178.000000000000000000
+          Position.Y = 8.000000000000000000
+          Size.Width = 48.000000000000000000
+          Size.Height = 38.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+        end
       end
     end
     object Layout6: TLayout
