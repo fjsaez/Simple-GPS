@@ -12,7 +12,9 @@ uses
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, FMX.Objects, FMX.ListBox, System.Rtti, Fmx.Bind.Editors,
   Data.Bind.EngExt,System.Bindings.Outputs, Fmx.Bind.DBEngExt,
-  Data.Bind.Components, Data.Bind.DBScope, FMX.Grid.Style;
+  Data.Bind.Components, Data.Bind.DBScope, FMX.Grid.Style, System.Actions,
+  FMX.ActnList, FMX.StdActns, FMX.MediaLibrary.Actions, System.ImageList,
+  FMX.ImgList;
 
 type
   TCoord = record
@@ -44,11 +46,21 @@ type
     ColGeoSex: TStringColumn;
     ColGeoDec: TStringColumn;
     ColUTM: TStringColumn;
-    Button1: TButton;
+    ActionList: TActionList;
+    ShowShareSheetAction1: TShowShareSheetAction;
+    ToolBar1: TToolBar;
+    ToolBar2: TToolBar;
+    Rectangle3: TRectangle;
+    SpeedButton1: TSpeedButton;
+    Image1: TImage;
+    SpeedButton2: TSpeedButton;
+    ImageList: TImageList;
     procedure SBVolverClick(Sender: TObject);
     procedure BGuardarClick(Sender: TObject);
     procedure MemoDescrChange(Sender: TObject);
     procedure SGridCellClick(const Column: TColumn; const Row: Integer);
+    procedure ShowShareSheetAction1BeforeExecute(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -168,6 +180,18 @@ begin
   LCoordUTM.Text:=SGrid.Cells[4,Row];
   IDCoord:=SGrid.Cells[1,Row].ToInteger;
   BGuardar.Text:='Quitar';
+end;
+
+procedure TFrmAgrCoord.ShowShareSheetAction1BeforeExecute(Sender: TObject);
+begin
+  ShowShareSheetAction1.Text:='Coord: '+Coord.LatLon+'; Descripción: '+
+                              Coord.Descripcion;
+  //showmessage('prueba');
+end;
+
+procedure TFrmAgrCoord.SpeedButton2Click(Sender: TObject);
+begin
+  showmessage('prb');
 end;
 
 end.

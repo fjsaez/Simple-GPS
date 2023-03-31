@@ -172,12 +172,6 @@ begin
   end;
 end;
 
-procedure TFPrinc.BAceptarClick(Sender: TObject);
-begin
-  PnlAcerca.Visible:=false;
-  LayPrinc.Visible:=true;
-end;
-
 procedure CargarFuente(Etq: TLabel);
 var
   Recursos: TResourceStream;
@@ -190,6 +184,12 @@ end;
 procedure TFPrinc.CargarRegCoordenadas;
 begin
  //
+end;
+
+procedure TFPrinc.BAceptarClick(Sender: TObject);
+begin
+  PnlAcerca.Visible:=false;
+  LayPrinc.Visible:=true;
 end;
 
 procedure TFPrinc.FormCreate(Sender: TObject);
