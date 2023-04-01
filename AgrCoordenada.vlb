@@ -31,9 +31,6 @@ Coordinates=20,250,53,33
 [LTit2]
 Coordinates=230,80,40,51
 
-[Layout6]
-Coordinates=20,210,53,33
-
 [LTotPtos]
 Coordinates=230,290,58,51
 
@@ -67,4 +64,7 @@ Coordinates=20,50,53,33
 []
 Coordinates=20,440,89,159
 Visible=True
+
+[LayToolBar]
+Coordinates=20,210,53,33
 

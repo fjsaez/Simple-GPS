@@ -93,6 +93,8 @@ type
     procedure FrmAgrCoord1BGuardarClick(Sender: TObject);
   private
     { Private declarations }
+    FPermissionReadExternalStorage,
+    FPermissionWriteExternalStorage: string;
     procedure CargarRegCoordenadas;
   public
     { Public declarations }
@@ -111,7 +113,12 @@ var
 
 implementation
 
-uses
+uses       (*
+  {$IFDEF ANDROID}
+    Androidapi.Helpers,
+    Androidapi.JNI.JavaTypes,
+    Androidapi.JNI.Os,
+  {$ENDIF}   *)
   System.Permissions, FMX.DialogService, DataMod;
 
 {$R *.fmx}
@@ -193,7 +200,11 @@ begin
 end;
 
 procedure TFPrinc.FormCreate(Sender: TObject);
-begin
+begin   (*
+  {$IFDEF ANDROID}
+    FPermissionReadExternalStorage:=JStringToString(TJManifest_permission.JavaClass.READ_EXTERNAL_STORAGE);
+    FPermissionWriteExternalStorage:=JStringToString(TJManifest_permission.JavaClass.WRITE_EXTERNAL_STORAGE);
+  {$ENDIF}  *)
   LActivar.TextSettings.FontColor:=Blanco;
   LNombre.Font.Family:='1';
   SBAgregar.Visible:=false;

@@ -30,7 +30,7 @@ type
     LTit2: TLabel;
     LCoordSex: TLabel;
     LTit1: TLabel;
-    Layout6: TLayout;
+    LayToolBar: TLayout;
     Layout7: TLayout;
     SBVolver: TSpeedButton;
     MemoDescr: TMemo;
@@ -51,16 +51,12 @@ type
     ToolBar1: TToolBar;
     ToolBar2: TToolBar;
     Rectangle3: TRectangle;
-    SpeedButton1: TSpeedButton;
-    Image1: TImage;
-    SpeedButton2: TSpeedButton;
-    ImageList: TImageList;
+    SBCompartir: TSpeedButton;
     procedure SBVolverClick(Sender: TObject);
     procedure BGuardarClick(Sender: TObject);
     procedure MemoDescrChange(Sender: TObject);
     procedure SGridCellClick(const Column: TColumn; const Row: Integer);
     procedure ShowShareSheetAction1BeforeExecute(Sender: TObject);
-    procedure SpeedButton2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -183,15 +179,12 @@ begin
 end;
 
 procedure TFrmAgrCoord.ShowShareSheetAction1BeforeExecute(Sender: TObject);
+var
+  Descr: string;
 begin
-  ShowShareSheetAction1.Text:='Coord: '+Coord.LatLon+'; Descripción: '+
-                              Coord.Descripcion;
-  //showmessage('prueba');
-end;
-
-procedure TFrmAgrCoord.SpeedButton2Click(Sender: TObject);
-begin
-  showmessage('prb');
+  if Trim(MemoDescr.Text)<>'' then Descr:='; Descripción: '+MemoDescr.Text
+                              else Descr:='';
+  ShowShareSheetAction1.TextMessage:='Coord: '+LCoordDec.Text+Descr;
 end;
 
 end.
