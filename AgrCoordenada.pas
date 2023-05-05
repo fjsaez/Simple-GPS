@@ -11,10 +11,9 @@ uses
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, FMX.Objects, FMX.ListBox, System.Rtti, Fmx.Bind.Editors,
-  Data.Bind.EngExt,System.Bindings.Outputs, Fmx.Bind.DBEngExt,
+  Data.Bind.EngExt,System.Bindings.Outputs, Fmx.Bind.DBEngExt, FMX.ActnList,
   Data.Bind.Components, Data.Bind.DBScope, FMX.Grid.Style, System.Actions,
-  FMX.ActnList, FMX.StdActns, FMX.MediaLibrary.Actions, System.ImageList,
-  FMX.ImgList;
+  FMX.StdActns, FMX.MediaLibrary.Actions, System.ImageList;
 
 type
   TCoord = record
@@ -163,6 +162,8 @@ end;
 
 procedure TFrmAgrCoord.SBVolverClick(Sender: TObject);
 begin
+  MemoDescr.Text:='';
+  BGuardar.Text:='Guardar';
   Visible:=false;
 end;
 

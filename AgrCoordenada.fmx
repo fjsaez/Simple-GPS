@@ -129,6 +129,8 @@ object FrmAgrCoord: TFrmAgrCoord
           Size.Width = 250.000000000000000000
           Size.Height = 70.000000000000000000
           Size.PlatformDefault = False
+          XRadius = 3.000000000000000000
+          YRadius = 3.000000000000000000
           object MemoDescr: TMemo
             Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
             DataDetectorTypes = []
@@ -145,8 +147,8 @@ object FrmAgrCoord: TFrmAgrCoord
             Size.Height = 64.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
-            Viewport.Width = 244.000000000000000000
-            Viewport.Height = 64.000000000000000000
+            Viewport.Width = 240.000000000000000000
+            Viewport.Height = 60.000000000000000000
           end
         end
       end
@@ -180,6 +182,8 @@ object FrmAgrCoord: TFrmAgrCoord
         Size.Width = 500.000000000000000000
         Size.Height = 298.000000000000000000
         Size.PlatformDefault = False
+        XRadius = 3.000000000000000000
+        YRadius = 3.000000000000000000
         object SGrid: TStringGrid
           Align = Client
           CanFocus = True
@@ -196,8 +200,8 @@ object FrmAgrCoord: TFrmAgrCoord
           RowCount = 0
           Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
           OnCellClick = SGridCellClick
-          Viewport.Width = 494.000000000000000000
-          Viewport.Height = 292.000000000000000000
+          Viewport.Width = 490.000000000000000000
+          Viewport.Height = 267.000000000000000000
           object ColDescr: TStringColumn
             Header = 'Descripci'#243'n'
             ReadOnly = True
