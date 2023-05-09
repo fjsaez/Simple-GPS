@@ -276,11 +276,30 @@ begin
   FrmAgrCoord.MemoDescr.SetFocus;
 end;
 
-procedure TFPrinc.SwitchGPSSwitch(Sender: TObject);
+procedure ActivarGPS(LcSensor: TLocationSensor; Activo: boolean);
 const
   PermissionAccessFineLocation='android.permission.ACCESS_FINE_LOCATION';
 begin
   PermissionsService.RequestPermissions([PermissionAccessFineLocation],
+    procedure(const APermissions: TClassicStringDynArray;
+              const AGrantResults: TClassicPermissionStatusDynArray)
+    begin
+      if (Length(AGrantResults)=1) and (AGrantResults[0]=TPermissionStatus.Granted) then
+        LcSensor.Active:=Activo
+      else
+      begin
+        Activo:=false;
+        //FrmAgrCoord.ValInicio;
+        TDialogService.ShowMessage('Acceso a Localización no está permitido');
+      end;
+    end);
+end;
+
+procedure TFPrinc.SwitchGPSSwitch(Sender: TObject);
+//const
+  //PermissionAccessFineLocation='android.permission.ACCESS_FINE_LOCATION';
+begin
+  {PermissionsService.RequestPermissions([PermissionAccessFineLocation],
     procedure(const APermissions: TClassicStringDynArray;
               const AGrantResults: TClassicPermissionStatusDynArray)
     begin
@@ -292,7 +311,8 @@ begin
         FrmAgrCoord.ValInicio;
         TDialogService.ShowMessage('Permiso de Localización no está permitido');
       end;
-    end);
+    end);}
+  ActivarGPS(LctSensor,SwitchGPS.IsChecked);
   //se cambian los colores según esté activo o no el GPS:
   if SwitchGPS.IsChecked then
   begin
@@ -303,6 +323,7 @@ begin
   end
   else
   begin
+    FrmAgrCoord.ValInicio;
     LActivar.Text:='Activar GPS';
     LActivar.TextSettings.FontColor:=Blanco;
     RectActivar.Fill.Color:=Rojo;
