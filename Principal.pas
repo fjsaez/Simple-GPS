@@ -180,6 +180,26 @@ begin
   Recursos:=TResourceStream.Create(hInstance,'1',RT_RCDATA);
 end;
 
+procedure ActivarGPS(LcSensor: TLocationSensor; Activo: boolean);
+const
+  PermissionAccessFineLocation='android.permission.ACCESS_FINE_LOCATION';
+begin
+  PermissionsService.RequestPermissions([PermissionAccessFineLocation],
+    procedure(const APermissions: TClassicStringDynArray;
+              const AGrantResults: TClassicPermissionStatusDynArray)
+    begin
+      if (Length(AGrantResults)=1) and (AGrantResults[0]=TPermissionStatus.Granted) then
+        LcSensor.Active:=Activo
+      else
+      begin
+        Activo:=false;
+        TDialogService.ShowMessage('Acceso a Localización no está permitido');
+      end;
+    end);
+end;
+
+/// Eventos ///
+
 procedure TFPrinc.BAceptarClick(Sender: TObject);
 begin
   PnlAcerca.Visible:=false;
@@ -276,42 +296,8 @@ begin
   FrmAgrCoord.MemoDescr.SetFocus;
 end;
 
-procedure ActivarGPS(LcSensor: TLocationSensor; Activo: boolean);
-const
-  PermissionAccessFineLocation='android.permission.ACCESS_FINE_LOCATION';
-begin
-  PermissionsService.RequestPermissions([PermissionAccessFineLocation],
-    procedure(const APermissions: TClassicStringDynArray;
-              const AGrantResults: TClassicPermissionStatusDynArray)
-    begin
-      if (Length(AGrantResults)=1) and (AGrantResults[0]=TPermissionStatus.Granted) then
-        LcSensor.Active:=Activo
-      else
-      begin
-        Activo:=false;
-        //FrmAgrCoord.ValInicio;
-        TDialogService.ShowMessage('Acceso a Localización no está permitido');
-      end;
-    end);
-end;
-
 procedure TFPrinc.SwitchGPSSwitch(Sender: TObject);
-//const
-  //PermissionAccessFineLocation='android.permission.ACCESS_FINE_LOCATION';
 begin
-  {PermissionsService.RequestPermissions([PermissionAccessFineLocation],
-    procedure(const APermissions: TClassicStringDynArray;
-              const AGrantResults: TClassicPermissionStatusDynArray)
-    begin
-      if (Length(AGrantResults)=1) and (AGrantResults[0]=TPermissionStatus.Granted) then
-        LctSensor.Active := SwitchGPS.IsChecked
-      else
-      begin
-        SwitchGPS.IsChecked:=false;
-        FrmAgrCoord.ValInicio;
-        TDialogService.ShowMessage('Permiso de Localización no está permitido');
-      end;
-    end);}
   ActivarGPS(LctSensor,SwitchGPS.IsChecked);
   //se cambian los colores según esté activo o no el GPS:
   if SwitchGPS.IsChecked then
