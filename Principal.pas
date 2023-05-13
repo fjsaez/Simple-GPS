@@ -7,7 +7,7 @@ uses
   System.Sensors, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Platform.Android,
   System.Sensors.Components, FMX.Objects, UTM_WGS84, Androidapi.JNI.Location,
-  FMX.FontGlyphs.Android, AgrCoordenada;
+  FMX.FontGlyphs.Android, AgrCoordenada, UtilesSimpleGPS;
 
 type
   TFPrinc = class(TForm)
@@ -97,16 +97,9 @@ type
     { Public declarations }
   end;
 
-const
-  Blanco=4294967295;
-  Negro=4278190080;
-  Lima=4278255360;
-  Chartreuse=$FF7FFF00;
-  Rojo=$FFFF0000;
-
 var
   FPrinc: TFPrinc;
-  Coords: TCoord;
+
 
 implementation
 
