@@ -2,6 +2,11 @@
 
 interface
 
+uses
+  FMX.FontGlyphs.Android, FMX.Forms, FMX.Objects, FMX.StdCtrls, FMX.Graphics,
+  System.Sensors.Components, System.SysUtils, System.Classes, System.Types,
+  System.Permissions, FMX.DialogService;
+
 type
   TCoord = record
     IDCoord: Cardinal;
@@ -19,6 +24,11 @@ const
 
 var
   Coords: TCoord;
+
+  function Orientacion(Grados: double): string;
+  procedure RotarFlecha(Circulo: TCircle; Azimut: Double);
+  procedure CargarFuente(Etq: TLabel);
+  procedure ActivarGPS(LcSensor: TLocationSensor; Activo: boolean);
 
 implementation
 
@@ -100,7 +110,7 @@ begin
       else
       begin
         Activo:=false;
-        TDialogService.ShowMessage('Acceso a Localización no está permitido');
+        TDialogService.ShowMessage('Permiso a Localización no concedido');
       end;
     end);
 end;

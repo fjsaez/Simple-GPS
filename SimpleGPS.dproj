@@ -296,6 +296,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
+        <DCCReference Include="UtilesSimpleGPS.pas"/>
         <DCCReference Include="Principal.pas">
             <Form>FPrinc</Form>
         </DCCReference>
@@ -307,7 +308,6 @@
         </DCCReference>
         <DCCReference Include="AgrCoordenada.pas">
             <Form>FrmAgrCoord</Form>
-            <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Base">
