@@ -7,7 +7,7 @@ uses
   System.Sensors, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Platform.Android,
   System.Sensors.Components, FMX.Objects, UTM_WGS84, Androidapi.JNI.Location,
-  FMX.FontGlyphs.Android, AgrCoordenada, UtilesSimpleGPS;
+  FMX.FontGlyphs.Android, System.Math, AgrCoordenada, UtilesSimpleGPS;
 
 type
   TFPrinc = class(TForm)
@@ -79,6 +79,11 @@ type
     Rectangle5: TRectangle;
     SBAgregar: TSpeedButton;
     FrmAgrCoord: TFrmAgrCoord;
+    Layout12: TLayout;
+    Label11: TLabel;
+    LVelocidad: TLabel;
+    Layout13: TLayout;
+    Line1: TLine;
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
     procedure SwitchGPSSwitch(Sender: TObject);
@@ -166,6 +171,8 @@ begin
   LNorte.Text:=FormatFloat('#0.00',UTM.Y);
   LLatGMS.Text:=DecAGrados(LatLon.Lat,true);
   LLonGMS.Text:=DecAGrados(LatLon.Lon,false);
+  if IsNaN(LctSensor.Sensor.Speed) then LVelocidad.Text:='0.00'
+  else LVelocidad.Text:=FormatFloat('#0.00',LctSensor.Sensor.Speed);
   //carga el registro:
   Coords.EsteUTM:=UTM.X;
   Coords.NorteUTM:=UTM.Y;
