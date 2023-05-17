@@ -1,11 +1,10 @@
 ﻿program SimpleGPS;
 
 uses
-  System.StartUpCopy,
+  FMX.Forms, System.StartUpCopy, System.SysUtils,
   Androidapi.JNI.App,
   Androidapi.JNI.GraphicsContentViewText,
   Androidapi.Helpers,
-  FMX.Forms,
   UtilesSimpleGPS in 'UtilesSimpleGPS.pas',
   Principal in 'Principal.pas' {FPrinc},
   Androidapi.JNI.Location in 'Androidapi.JNI.Location.pas',
