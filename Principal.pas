@@ -14,7 +14,7 @@ type
     LayFlecha: TLayout;
     CrcKingOTN: TCircle;
     LayBot: TLayout;
-    SpeedButton1: TSpeedButton;
+    SBSalir: TSpeedButton;
     StyleBook: TStyleBook;
     VertScrollBox1: TVertScrollBox;
     LayMap: TLayout;
@@ -36,7 +36,7 @@ type
     LayMsgUTM: TLayout;
     Label7: TLabel;
     LctSensor: TLocationSensor;
-    SpeedButton2: TSpeedButton;
+    SBAcerca: TSpeedButton;
     LayLED: TLayout;
     SwitchGPS: TSwitch;
     LActivar: TLabel;
@@ -87,8 +87,8 @@ type
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
     procedure SwitchGPSSwitch(Sender: TObject);
-    procedure SpeedButton1Click(Sender: TObject);
-    procedure SpeedButton2Click(Sender: TObject);
+    procedure SBSalirClick(Sender: TObject);
+    procedure SBAcercaClick(Sender: TObject);
     procedure LctSensorHeadingChanged(Sender: TObject;
       const AHeading: THeading);
     procedure BAceptarClick(Sender: TObject);
@@ -112,8 +112,6 @@ uses
   System.Permissions, FMX.DialogService, DataMod;
 
 {$R *.fmx}
-
-/// Eventos ///
 
 procedure TFPrinc.BAceptarClick(Sender: TObject);
 begin
@@ -185,13 +183,13 @@ begin
   Coords.Fecha:=Now;
 end;
 
-procedure TFPrinc.SpeedButton1Click(Sender: TObject);
+procedure TFPrinc.SBSalirClick(Sender: TObject);
 begin
   DMod.FDConn.Connected:=false;
   Application.Terminate;
 end;
 
-procedure TFPrinc.SpeedButton2Click(Sender: TObject);
+procedure TFPrinc.SBAcercaClick(Sender: TObject);
 begin
   LayPrinc.Visible:=false;
   PnlAcerca.Visible:=true;
