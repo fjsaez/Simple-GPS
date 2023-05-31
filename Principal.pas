@@ -170,7 +170,8 @@ begin
   LLatGMS.Text:=DecAGrados(LatLon.Lat,true);
   LLonGMS.Text:=DecAGrados(LatLon.Lon,false);
   if IsNaN(LctSensor.Sensor.Speed) then LVelocidad.Text:='0.00'
-  else LVelocidad.Text:=FormatFloat('#0.00',LctSensor.Sensor.Speed);
+  else
+    LVelocidad.Text:=FormatFloat('#0.00',LctSensor.Sensor.Speed*3.5999999999971);
   //carga el registro:
   Coords.EsteUTM:=UTM.X;
   Coords.NorteUTM:=UTM.Y;
