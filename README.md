@@ -4,14 +4,14 @@
 
 ## Descripción
 
-Sencilla app móvil para Android que muestra las coordenadas del GPS, tanto en formato geográfico como UTM (Universal Transversal Mercator).
+Sencilla app móvil para Android que muestra las coordenadas del GPS, tanto en formato geográfico como UTM (Universal Transversal Mercator). Guarda además dichas coordenadas si así se requiere.
 
 
 ---
 
 ## Lenguaje/framework
 
-* Lenguaje: Delphi 10.2 Tokyo, empleando sólo componentes nativos. 
+* Lenguaje: Delphi 11.2 Tokyo, empleando sólo componentes nativos. 
 * Framework: Firemonkey. 
 
 ---
