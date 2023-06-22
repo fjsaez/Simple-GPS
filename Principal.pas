@@ -182,6 +182,7 @@ begin
   Coords.LatLon:=Format('%2.6f',[NewLocation.Longitude])+', '+
                  Format('%2.6f',[NewLocation.Latitude]);
   Coords.Fecha:=Now;
+  FormatSettings.DecimalSeparator:=LDecSeparator;
 end;
 
 procedure TFPrinc.SBSalirClick(Sender: TObject);
