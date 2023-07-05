@@ -13,7 +13,8 @@ uses
   FireDAC.Comp.Client, FMX.Objects, FMX.ListBox, System.Rtti, Fmx.Bind.Editors,
   Data.Bind.EngExt,System.Bindings.Outputs, Fmx.Bind.DBEngExt, FMX.ActnList,
   Data.Bind.Components, Data.Bind.DBScope, FMX.Grid.Style, System.Actions,
-  FMX.StdActns, FMX.MediaLibrary.Actions, System.ImageList, UtilesSimpleGPS;
+  FMX.StdActns, FMX.MediaLibrary.Actions, System.ImageList, UtilesSimpleGPS,
+  FMX.Edit;
 
 type
   TFrmAgrCoord = class(TFrame)
@@ -122,7 +123,7 @@ end;
 
 procedure TFrmAgrCoord.Guardar;
 begin
-  Coord.Descripcion:=Trim(MemoDescr.Text);
+  Coord.Descripcion:=MemoDescr.Text.Trim;
   Coord.Fecha:=Now;
   Query.SQL.Text:='insert into Coordenadas (EsteUTM,NorteUTM,Lat,Lon,LatGMS,'+
     'LonGMS,LatLon,Descripcion,Fecha) values (:esu,:nou,:lat,:lon,:lag,:log,'+
@@ -151,7 +152,7 @@ end;
 
 procedure TFrmAgrCoord.MemoDescrChange(Sender: TObject);
 begin
-  BGuardar.Enabled:=Trim(MemoDescr.Text)<>'';
+  BGuardar.Enabled:=MemoDescr.Text.Trim<>'';
 end;
 
 procedure TFrmAgrCoord.SBVolverClick(Sender: TObject);
@@ -177,8 +178,8 @@ procedure TFrmAgrCoord.ShowShareSheetAction1BeforeExecute(Sender: TObject);
 var
   Descr: string;
 begin
-  if Trim(MemoDescr.Text)<>'' then Descr:='; Descripción: '+MemoDescr.Text
-                              else Descr:='';
+  if MemoDescr.Text.Trim<>'' then Descr:='; Descripción: '+MemoDescr.Text
+                             else Descr:='';
   ShowShareSheetAction1.TextMessage:='Coord: '+LCoordDec.Text+Descr;
 end;
 

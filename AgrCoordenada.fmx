@@ -146,9 +146,10 @@ object FrmAgrCoord: TFrmAgrCoord
             Size.Width = 244.000000000000000000
             Size.Height = 64.000000000000000000
             Size.PlatformDefault = False
+            StyleLookup = 'memostyle'
             TabOrder = 0
-            Viewport.Width = 244.000000000000000000
-            Viewport.Height = 64.000000000000000000
+            Viewport.Width = 240.000000000000000000
+            Viewport.Height = 60.000000000000000000
           end
         end
       end
@@ -200,8 +201,8 @@ object FrmAgrCoord: TFrmAgrCoord
           RowCount = 0
           Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
           OnCellClick = SGridCellClick
-          Viewport.Width = 494.000000000000000000
-          Viewport.Height = 292.000000000000000000
+          Viewport.Width = 490.000000000000000000
+          Viewport.Height = 267.000000000000000000
           object ColDescr: TStringColumn
             Header = 'Descripci'#243'n'
             ReadOnly = True
