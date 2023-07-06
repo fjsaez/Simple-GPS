@@ -44,8 +44,8 @@ type
     RectActivar: TRectangle;
     Rectangle3: TRectangle;
     Rectangle4: TRectangle;
-    Layout1: TLayout;
-    Layout2: TLayout;
+    LayAzimut: TLayout;
+    LayRumbo: TLayout;
     LRumbo: TLabel;
     Label1: TLabel;
     Label8: TLabel;
