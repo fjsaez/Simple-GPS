@@ -27,7 +27,6 @@ type
     LayToolBar: TLayout;
     Layout7: TLayout;
     SBVolver: TSpeedButton;
-    MemoDescr: TMemo;
     BGuardar: TButton;
     Query: TFDQuery;
     QrLista: TFDQuery;
@@ -46,11 +45,12 @@ type
     ToolBar2: TToolBar;
     Rectangle3: TRectangle;
     SBCompartir: TSpeedButton;
+    EDescr: TEdit;
     procedure SBVolverClick(Sender: TObject);
     procedure BGuardarClick(Sender: TObject);
-    procedure MemoDescrChange(Sender: TObject);
     procedure SGridCellClick(const Column: TColumn; const Row: Integer);
     procedure ShowShareSheetAction1BeforeExecute(Sender: TObject);
+    procedure EDescrChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -82,7 +82,7 @@ begin
   LCoordSex.Text:='';
   LCoordDec.Text:='';
   LCoordUTM.Text:='';
-  MemoDescr.Text:='';
+  EDescr.Text:='';
 end;
 
 procedure TFrmAgrCoord.CargarLista;
@@ -112,6 +112,11 @@ begin
   SGrid.EndUpdate;
 end;
 
+procedure TFrmAgrCoord.EDescrChange(Sender: TObject);
+begin
+  BGuardar.Enabled:=EDescr.Text.Trim<>'';
+end;
+
 procedure TFrmAgrCoord.Eliminar(ID: integer);
 begin
   Query.SQL.Text:='delete from Coordenadas where IDCoord=:idc';
@@ -123,7 +128,7 @@ end;
 
 procedure TFrmAgrCoord.Guardar;
 begin
-  Coord.Descripcion:=MemoDescr.Text.Trim;
+  Coord.Descripcion:=EDescr.Text.Trim;
   Coord.Fecha:=Now;
   Query.SQL.Text:='insert into Coordenadas (EsteUTM,NorteUTM,Lat,Lon,LatGMS,'+
     'LonGMS,LatLon,Descripcion,Fecha) values (:esu,:nou,:lat,:lon,:lag,:log,'+
@@ -150,14 +155,9 @@ begin
   ValInicio;
 end;
 
-procedure TFrmAgrCoord.MemoDescrChange(Sender: TObject);
-begin
-  BGuardar.Enabled:=MemoDescr.Text.Trim<>'';
-end;
-
 procedure TFrmAgrCoord.SBVolverClick(Sender: TObject);
 begin
-  MemoDescr.Text:='';
+  EDescr.Text:='';
   BGuardar.Text:='Guardar';
   Visible:=false;
 end;
@@ -165,8 +165,8 @@ end;
 procedure TFrmAgrCoord.SGridCellClick(const Column: TColumn;
   const Row: Integer);
 begin
-  MemoDescr.ReadOnly:=true;
-  MemoDescr.Text:=SGrid.Cells[0,Row];
+  EDescr.ReadOnly:=true;
+  EDescr.Text:=SGrid.Cells[0,Row];
   LCoordSex.Text:=SGrid.Cells[2,Row];
   LCoordDec.Text:=SGrid.Cells[3,Row];
   LCoordUTM.Text:=SGrid.Cells[4,Row];
@@ -178,8 +178,8 @@ procedure TFrmAgrCoord.ShowShareSheetAction1BeforeExecute(Sender: TObject);
 var
   Descr: string;
 begin
-  if MemoDescr.Text.Trim<>'' then Descr:='; Descripción: '+MemoDescr.Text
-                             else Descr:='';
+  if EDescr.Text.Trim<>'' then Descr:='; Descripción: '+EDescr.Text
+                          else Descr:='';
   ShowShareSheetAction1.TextMessage:='Coord: '+LCoordDec.Text+Descr;
 end;
 

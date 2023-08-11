@@ -204,13 +204,13 @@ begin
   FrmAgrCoord.LCoordDec.Text:=Coords.LatLon;
   FrmAgrCoord.LCoordUTM.Text:=FormatFloat('#0.00',Coords.EsteUTM)+', '+
                               FormatFloat('#0.00',Coords.NorteUTM);
-  FrmAgrCoord.MemoDescr.ReadOnly:=false;
+  FrmAgrCoord.EDescr.ReadOnly:=false;
   FrmAgrCoord.BGuardar.Enabled:=false;
   FrmAgrCoord.CargarLista;
   FrmAgrCoord.ColDescr.Width:=FrmAgrCoord.SGrid.Width;
   LayPrinc.Visible:=false;
   FrmAgrCoord.Visible:=true;
-  FrmAgrCoord.MemoDescr.SetFocus;
+  FrmAgrCoord.EDescr.SetFocus;
 end;
 
 procedure TFPrinc.SwitchGPSSwitch(Sender: TObject);

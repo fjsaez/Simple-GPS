@@ -10,9 +10,6 @@ Coordinates=120,10,69,51
 [LCoordUTM]
 Coordinates=120,150,73,51
 
-[MemoDescr]
-Coordinates=230,220,72,51
-
 [Layout5]
 Coordinates=20,170,53,33
 
@@ -62,7 +59,7 @@ Coordinates=230,10,40,51
 Coordinates=20,50,53,33
 
 []
-Coordinates=20,440,89,159
+Coordinates=230,220,72,51
 Visible=True
 
 [LayToolBar]

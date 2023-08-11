@@ -114,49 +114,45 @@ object FrmAgrCoord: TFrmAgrCoord
       Align = Top
       Position.Y = 190.000000000000000000
       Size.Width = 500.000000000000000000
-      Size.Height = 70.000000000000000000
+      Size.Height = 65.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
       object Layout4: TLayout
         Align = Left
         Size.Width = 250.000000000000000000
-        Size.Height = 70.000000000000000000
+        Size.Height = 65.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         object Rectangle1: TRectangle
           Align = Client
           Fill.Color = claYellow
           Size.Width = 250.000000000000000000
-          Size.Height = 70.000000000000000000
+          Size.Height = 65.000000000000000000
           Size.PlatformDefault = False
           XRadius = 3.000000000000000000
           YRadius = 3.000000000000000000
-          object MemoDescr: TMemo
-            Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
-            DataDetectorTypes = []
-            MaxLength = 40
-            StyledSettings = [Family, Size, FontColor]
-            TextSettings.WordWrap = True
-            OnChange = MemoDescrChange
+          object EDescr: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
             Align = Client
-            Margins.Left = 3.000000000000000000
-            Margins.Top = 3.000000000000000000
-            Margins.Right = 3.000000000000000000
-            Margins.Bottom = 3.000000000000000000
-            Size.Width = 244.000000000000000000
-            Size.Height = 64.000000000000000000
-            Size.PlatformDefault = False
-            StyleLookup = 'memostyle'
             TabOrder = 0
-            Viewport.Width = 240.000000000000000000
-            Viewport.Height = 60.000000000000000000
+            ControlType = Platform
+            ReturnKeyType = Done
+            MaxLength = 40
+            Margins.Left = 4.000000000000000000
+            Margins.Top = 4.000000000000000000
+            Margins.Right = 4.000000000000000000
+            Size.Width = 242.000000000000000000
+            Size.Height = 61.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, Size]
+            OnChange = EDescrChange
           end
         end
       end
       object Layout5: TLayout
         Align = Client
         Size.Width = 250.000000000000000000
-        Size.Height = 70.000000000000000000
+        Size.Height = 65.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
         object BGuardar: TButton
@@ -174,14 +170,14 @@ object FrmAgrCoord: TFrmAgrCoord
     object Layout7: TLayout
       Align = Client
       Size.Width = 500.000000000000000000
-      Size.Height = 298.000000000000000000
+      Size.Height = 303.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
       object Rectangle2: TRectangle
         Align = Client
         Fill.Color = claYellow
         Size.Width = 500.000000000000000000
-        Size.Height = 298.000000000000000000
+        Size.Height = 303.000000000000000000
         Size.PlatformDefault = False
         XRadius = 3.000000000000000000
         YRadius = 3.000000000000000000
@@ -194,15 +190,15 @@ object FrmAgrCoord: TFrmAgrCoord
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
           Size.Width = 494.000000000000000000
-          Size.Height = 292.000000000000000000
+          Size.Height = 297.000000000000000000
           Size.PlatformDefault = False
           StyledSettings = [Family, Style, FontColor]
           TabOrder = 0
           RowCount = 0
           Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
           OnCellClick = SGridCellClick
-          Viewport.Width = 490.000000000000000000
-          Viewport.Height = 267.000000000000000000
+          Viewport.Width = 494.000000000000000000
+          Viewport.Height = 297.000000000000000000
           object ColDescr: TStringColumn
             Header = 'Descripci'#243'n'
             ReadOnly = True
@@ -262,7 +258,7 @@ object FrmAgrCoord: TFrmAgrCoord
     end
     object LayToolBar: TLayout
       Align = Top
-      Position.Y = 260.000000000000000000
+      Position.Y = 255.000000000000000000
       Size.Width = 500.000000000000000000
       Size.Height = 52.000000000000000000
       Size.PlatformDefault = False
