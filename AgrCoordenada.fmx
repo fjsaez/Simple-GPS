@@ -305,7 +305,7 @@ object FrmAgrCoord: TFrmAgrCoord
   object QrLista: TFDQuery
     Connection = DMod.FDConn
     SQL.Strings = (
-      'select * from Coordenadas order by IDCoord desc')
+      'select * from Coordenadas order by Descripcion desc')
     Left = 336
     Top = 336
   end
